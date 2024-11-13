@@ -1,6 +1,8 @@
-export default function NetworkCards(props) {
+import { Card } from "react-bootstrap";
 
-    return <>
-        
-    </>
+export default function NetworkCards(props: any) {
+
+    return <Card>
+        <h2>{props.name}</h2>
+    </Card>
 }

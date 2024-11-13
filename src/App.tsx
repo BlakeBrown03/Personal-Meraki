@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import NetworkCard from "./NetworkCard";
+import { Row } from "react-bootstrap";
 
 function App() {
 	const [networks, setNetworks] = useState([]);
@@ -26,8 +27,12 @@ function App() {
 
 	return (
 		<>
-			<h1 style={{textAlign: "center"}}>Welcome to Meraki API</h1>
-			{networks.map((network: any) => <NetworkCard id={network.id}>{...network}</NetworkCard>)}
+			<h1 style={{ textAlign: "center" }}>Welcome to Meraki API</h1>
+			{networks.map((network: any) => (
+				<Row key={network.id} xs={12} s={6} m={4} l={4} xl={4}>
+					<NetworkCard {...network}></NetworkCard>
+				</Row>
+			))}
 		</>
 	);
 }
