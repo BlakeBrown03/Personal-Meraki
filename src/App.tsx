@@ -6,16 +6,14 @@ function App() {
 	const [data, setData] = useState([]);
 
 	async function fetchData() {
-		const response = await fetch("/api/organizations", {
+		const response = await fetch("http://localhost:3000/https://api.meraki.com/api/v1/organizations", {
     headers: {
-        "X-Cisco-Meraki-API-Key": "e6d6f7f6e1a2f7c6c0a8e7f6e1e6f6e1e6f6e1e6"
+        "X-Cisco-Meraki-API-Key": "e1613b45cd4d8fe315ce194c039381176091a534"
     }
 });
-		console.log("response status: ", response.status);
-		console.log("response headers: ", response.headers);
 		const respData = await response.json();
 		setData(respData);
-		console.log(data);
+		console.log(respData);
 	}
 
 	useEffect(() => {
