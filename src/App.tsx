@@ -32,7 +32,13 @@ function App() {
 				<Container fluid>
 					<Row>
 						{networks.map((network: any) => (
-							<Col style={{paddingTop: 10, paddingBottom: 10 }} key={network.id} xs={12} sm={12} lg={6} xl={4}>
+							<Col
+								style={{ paddingTop: 10, paddingBottom: 10 }}
+								key={network.id}
+								xs={12}
+								sm={12}
+								lg={6}
+								xl={4}>
 								<NetworkCard {...network}></NetworkCard>
 							</Col>
 						))}
