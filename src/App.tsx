@@ -29,10 +29,10 @@ function App() {
 		<>
 			<h1 style={{ textAlign: "center" }}>Welcome to Meraki API</h1>
 			{networks.length > 0 ? (
-				<Container>
+				<Container fluid>
 					<Row>
 						{networks.map((network: any) => (
-							<Col key={network.id} xs={12} sm={6} md={4}>
+							<Col style={{paddingTop: 10, paddingBottom: 10 }} key={network.id} xs={12} sm={12} lg={6} xl={4}>
 								<NetworkCard {...network}></NetworkCard>
 							</Col>
 						))}
