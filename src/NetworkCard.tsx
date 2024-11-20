@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Accordion } from "react-bootstrap";
+import { Accordion, Col, Container, Row } from "react-bootstrap";
 import Device from "./Device";
 
 export default function NetworkCards(props: any) {
 	const [networkData, setNetworkData] = useState<any>([]);
 
 	async function handleNetworkClick(): Promise<void> {
-		console.log("Network clicked");
 		const fetchData = await fetch(
 			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/289024/devices/?networkIds[]=${props.id}`,
 			{
@@ -18,7 +17,7 @@ export default function NetworkCards(props: any) {
 		);
 		const respData = await fetchData.json();
 		setNetworkData(respData);
-		// console.log(respData);
+		console.log(respData);
 	}
 
 	return (
@@ -28,9 +27,17 @@ export default function NetworkCards(props: any) {
 					{props.name}
 				</Accordion.Header>
 				<Accordion.Body>
-					{networkData.map((device: any) => {
-						return <Device key={device.name} {...device}></Device>
-					})}
+					<Container>
+						<Row fluid="true">
+							{networkData.map((device: any) => {
+								return (
+									<Col key={device.name}>
+										<Device {...device}></Device>
+									</Col>
+								);
+							})}
+						</Row>
+					</Container>
 				</Accordion.Body>
 			</Accordion.Item>
 		</Accordion>

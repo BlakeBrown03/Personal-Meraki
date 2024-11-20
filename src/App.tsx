@@ -18,7 +18,7 @@ function App() {
 		);
 		const respData = await response.json();
 		setNetworks(respData);
-		console.log(respData);
+		// console.log(respData);
 	}
 
 	useEffect(() => {
@@ -34,7 +34,7 @@ function App() {
 						{networks.map((network: any) => (
 							<Col
 								style={{ paddingTop: 10, paddingBottom: 10 }}
-								key={network.id}
+								key={network.id}							
 								xs={12}
 								sm={12}
 								lg={6}
