@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Accordion } from "react-bootstrap";
+import { Accordion, Table } from "react-bootstrap";
 import Device from "./Device";
 
 export default function NetworkCards(props: any) {
@@ -25,11 +25,21 @@ export default function NetworkCards(props: any) {
 			<Accordion.Item eventKey="0">
 				<Accordion.Header>{props.name}</Accordion.Header>
 				<Accordion.Body onEnter={handleNetworkClick}>
+					<Table>
+						<thead>
+							<th>hostname</th>
+							<th>product type</th>
+							<th>model</th>
+							<th>lan IP</th>
+							<th>mac</th>
+							<th>serial</th>
+						</thead>
+						<tbody>
 							{networkData.map((device: any) => {
-								return (
-										<Device {...device}></Device>
-								);
+								return <Device {...device}></Device>;
 							})}
+						</tbody>
+					</Table>
 				</Accordion.Body>
 			</Accordion.Item>
 		</Accordion>
