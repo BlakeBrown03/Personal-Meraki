@@ -27,11 +27,11 @@ export default function NetworkCards(props: any) {
 					{props.name}
 				</Accordion.Header>
 				<Accordion.Body>
-					<Container>
-						<Row fluid="true">
+					<Container fluid>
+						<Row>
 							{networkData.map((device: any) => {
 								return (
-									<Col key={device.name}>
+									<Col key={device.name} xs={12} md={6}>
 										<Device {...device}></Device>
 									</Col>
 								);

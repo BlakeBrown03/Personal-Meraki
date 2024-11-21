@@ -34,11 +34,9 @@ function App() {
 						{networks.map((network: any) => (
 							<Col
 								style={{ paddingTop: 10, paddingBottom: 10 }}
-								key={network.id}							
-								xs={12}
-								sm={12}
-								lg={6}
-								xl={4}>
+								key={network.id}
+								md={12}
+								xl={6}>
 								<NetworkCard {...network}></NetworkCard>
 							</Col>
 						))}
