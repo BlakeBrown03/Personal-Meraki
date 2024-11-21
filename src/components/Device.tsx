@@ -9,6 +9,7 @@ export default function Device(props: any) {
 					{"model" in props ? <li>Model: {props.model}</li> : ""}
 					{"productType" in props ? <li>Product Type: {props.productType}</li> : ""}
 					{"serial" in props ? <li>Serial: {props.serial}</li> : ""}
+					{"url" in props ? <li><a href={props.url} target="_blank">URL</a></li>: ""}
 				</ul>
 			</ul>
 		</div>

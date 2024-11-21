@@ -23,10 +23,8 @@ export default function NetworkCards(props: any) {
 	return (
 		<Accordion>
 			<Accordion.Item eventKey="0">
-				<Accordion.Header onClick={handleNetworkClick}>
-					{props.name}
-				</Accordion.Header>
-				<Accordion.Body>
+				<Accordion.Header>{props.name}</Accordion.Header>
+				<Accordion.Body onEnter={handleNetworkClick}>
 					<Container fluid>
 						<Row>
 							{networkData.map((device: any) => {
