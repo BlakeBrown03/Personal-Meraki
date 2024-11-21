@@ -1,5 +1,5 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Layout() {
     return (
@@ -12,6 +12,9 @@ export default function Layout() {
                     </Nav>
                 </Container>
             </Navbar>
+            <Container>
+                <Outlet />
+            </Container>
         </div>
     );
 };
