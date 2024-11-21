@@ -68,7 +68,11 @@ function App() {
 			) : (
 				<h1 style={{ textAlign: "center" }}>Loading...</h1>
 			)}
-			<Pagination>{buildPaginator()}</Pagination>
+			<Pagination>
+				<Pagination.Item onClick={() => setPage(page - 1)} disabled={page === 1}>Back</Pagination.Item>
+				{buildPaginator()}
+				<Pagination.Item onClick={() => setPage(page + 1)} disabled={page === Math.ceil(networks.length / 24)}>Next</Pagination.Item>
+			</Pagination>
 		</>
 	);
 }
