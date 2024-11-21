@@ -3,9 +3,9 @@ import "./App.css";
 import NetworkCard from "./NetworkCard";
 import { Col, Container, Pagination, Row } from "react-bootstrap";
 
-function App() {
+function NetworksPage() {
 	const [networks, setNetworks] = useState([]);
-	const [shownNetworks, setShownNetworks] = useState([]);
+	// const [shownNetworks, setShownNetworks] = useState([]);
 	const [page, setPage] = useState(1);
 
 	async function fetchData() {
@@ -77,4 +77,4 @@ function App() {
 	);
 }
 
-export default App;
+export default NetworksPage;
