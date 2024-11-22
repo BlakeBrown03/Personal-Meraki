@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import NetworkCard from "../components/NetworkCard";
-import { Col, Container, Pagination, Row } from "react-bootstrap";
+import { Col, Container, Form, Pagination, Row } from "react-bootstrap";
 
 function NetworksPage() {
 	const [networks, setNetworks] = useState([]);
-	// const [shownNetworks, setShownNetworks] = useState([]);
+	const [shownNetworks, setShownNetworks] = useState([]);
 	const [page, setPage] = useState(1);
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
+	const [typeFilter, setTypeFilter] = useState("");
 
 	async function fetchData() {
 		const response = await fetch(
@@ -19,11 +20,12 @@ function NetworksPage() {
 		);
 		const respData = await response.json();
 		setNetworks(respData);
+		setShownNetworks(respData);
 		// console.log(respData);
 	}
 
 	function buildPaginator() {
-		const pages: number = Math.ceil(networks.length / 24);
+		const pages: number = Math.ceil(shownNetworks.length / 24);
 		const paginator = [];
 		for (let i = 1; i <= pages; i++) {
 			paginator.push(
@@ -39,6 +41,23 @@ function NetworksPage() {
 	}
 
 	useEffect(() => {
+		console.log(typeFilter);
+		setShownNetworks(
+			networks.filter((network: any) => {
+				if (typeFilter === "site" && network.name.substring(0,4) === "site") {
+					return network;
+				} else if (typeFilter === "user" && network.name.substring(0,3) === "usr") {
+					return network; 
+				} else if (typeFilter === "other" && network.name.substring(0,3) !== "usr" && network.name.substring(0,4) !== "site") {
+					return network;
+				} else if (typeFilter === "") {
+					return network;
+				}
+			})
+		);
+	}, [typeFilter]);
+
+	useEffect(() => {
 		fetchData();
 	}, []);
 
@@ -47,9 +66,15 @@ function NetworksPage() {
 			<h1 style={{ textAlign: "center",fontSize:"30px" }}>Welcome to Meraki API</h1>
 			{networks.length > 0 ? (
 				<>
+					<Form.Select onChange={(e) => setTypeFilter(e.target.value)}>
+						<option value="">All</option>
+						<option value="user">Users</option>
+						<option value="site">Sites</option>
+						<option value="other">Other</option>
+					</Form.Select>
 					<Container fluid>
 						<Row>
-							{networks
+							{shownNetworks
 								.slice(24 * (page - 1), 24 * page)
 								.map((network: any) => (
 									<Col
