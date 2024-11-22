@@ -7,14 +7,14 @@ function NetworksPage() {
 	const [networks, setNetworks] = useState([]);
 	// const [shownNetworks, setShownNetworks] = useState([]);
 	const [page, setPage] = useState(1);
+	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
 
 	async function fetchData() {
 		const response = await fetch(
 			"http://localhost:3000/https://api.meraki.com/api/v1/organizations/289024/networks",
 			{
 				headers: {
-					"X-Cisco-Meraki-API-Key":
-						"e1613b45cd4d8fe315ce194c039381176091a534"
+					"X-Cisco-Meraki-API-Key": apiKey
 				}
 			}
 		);
