@@ -25,7 +25,7 @@ export default function NetworkCards(props: any) {
 			<Accordion.Item eventKey="0">
 				<Accordion.Header>{props.name}</Accordion.Header>
 				<Accordion.Body onEnter={handleNetworkClick}>
-					<Table>
+					<Table responsive>
 						<thead>
 							<tr>
 								<th>hostname</th>
