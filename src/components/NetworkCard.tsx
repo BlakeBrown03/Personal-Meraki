@@ -29,7 +29,7 @@ export default function NetworkCards(props: any) {
 						<thead>
 							<tr>
 								<th>hostname</th>
-								<th>product type</th>
+								<th>type</th>
 								<th>model</th>
 								<th>lan IP</th>
 								<th>mac</th>

@@ -4,7 +4,10 @@ import { Link, Outlet } from "react-router-dom";
 export default function Layout() {
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
+            <Navbar>
+                <Navbar.Brand href="/">
+                    <img src="/src/assets/logo-text.svg" width="250"/>
+                </Navbar.Brand>
                 <Container>
                     <Nav>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>

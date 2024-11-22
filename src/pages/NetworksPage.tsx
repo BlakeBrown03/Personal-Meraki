@@ -44,7 +44,7 @@ function NetworksPage() {
 
 	return (
 		<>
-			<h1 style={{ textAlign: "center" }}>Welcome to Meraki API</h1>
+			<h1 style={{ textAlign: "center",fontSize:"30px" }}>Welcome to Meraki API</h1>
 			{networks.length > 0 ? (
 				<>
 					<Container fluid>
