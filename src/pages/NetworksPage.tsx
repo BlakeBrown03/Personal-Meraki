@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import NetworkCard from "./NetworkCard";
+import NetworkCard from "../components/NetworkCard";
 import { Col, Container, Pagination, Row } from "react-bootstrap";
 
 function NetworksPage() {
