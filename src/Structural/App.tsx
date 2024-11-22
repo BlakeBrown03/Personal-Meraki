@@ -1,8 +1,7 @@
-import "../components/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
-import NetworksPage from "../components/NetworksPage";
-import Login from "../components/Login";
+import NetworksPage from "../pages/NetworksPage";
+import Login from "../pages/Login";
 
 function App() {
 	return (

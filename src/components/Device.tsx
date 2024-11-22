@@ -1,16 +1,12 @@
 export default function Device(props: any) {
 	return (
-		<div>
-			<ul>
-				<li><a href={props.url}>{props.name}</a></li>
-				<ul>
-					{"mac" in props ? <li>MAC: {props.mac}</li> : ""}
-					{"lanIp" in props ? <li>LAN IP: {props.lanIp}</li> : ""}
-					{"model" in props ? <li>Model: {props.model}</li> : ""}
-					{"productType" in props ? <li>Product Type: {props.productType}</li> : ""}
-					{"serial" in props ? <li>Serial: {props.serial}</li> : ""}
-				</ul>
-			</ul>
-		</div>
+		<tr>
+			{"hostname" in props ? <td>{props.hostname}</td> : <td>NA</td>}
+			{"productType" in props ? <td>{props.productType}</td> : <td>NA</td>}
+			{"model" in props ? <td>{props.model}</td> : <td>NA</td>}
+			{"lanIp" in props ? <td>{props.lanIp}</td> : <td>NA</td>}
+			{"mac" in props ? <td>{props.mac}</td> : <td>NA</td>}
+			{"serial" in props ? <td>{props.serial}</td> : <td>NA</td>}
+		</tr>
 	);
 }
