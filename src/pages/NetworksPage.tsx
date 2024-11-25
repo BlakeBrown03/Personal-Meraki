@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import NetworkCard from "../components/NetworkCard";
-import { Col, Container, Form, Pagination, Row } from "react-bootstrap";
+import {
+	Accordion,
+	Col,
+	Container,
+	Form,
+	Pagination,
+	Row
+} from "react-bootstrap";
 
 function NetworksPage() {
 	const [networks, setNetworks] = useState([]);
 	const [shownNetworks, setShownNetworks] = useState([]);
 	const [page, setPage] = useState(1);
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
-	const [typeFilter, setTypeFilter] = useState("");
+	const [typeFilter, setTypeFilter] = useState(["user", "site", "other"]);
+	const [searchValue, setSearchValue] = useState("");
 
 	async function fetchData() {
 		const response = await fetch(
@@ -45,22 +53,20 @@ function NetworksPage() {
 		setShownNetworks(
 			networks.filter((network: any) => {
 				if (
-					typeFilter === "site" &&
+					typeFilter.some(element => element === "site") &&
 					network.name.substring(0, 4) === "site"
 				) {
 					return network;
 				} else if (
-					typeFilter === "user" &&
+					typeFilter.some(element => element === "user") &&
 					network.name.substring(0, 3) === "usr"
 				) {
 					return network;
 				} else if (
-					typeFilter === "other" &&
+					typeFilter.some(element => element === "other") &&
 					network.name.substring(0, 3) !== "usr" &&
 					network.name.substring(0, 4) !== "site"
 				) {
-					return network;
-				} else if (typeFilter === "") {
 					return network;
 				}
 			})
@@ -68,29 +74,135 @@ function NetworksPage() {
 	}, [typeFilter]);
 
 	useEffect(() => {
+		setShownNetworks(
+			networks.filter((network: any) => {
+				if (network.name.includes(searchValue)) {
+					return network;
+				}
+			})
+		);
+	}, [searchValue]);
+
+	useEffect(() => {
 		fetchData();
 	}, []);
 
 	return (
 		<>
-			<h1 style={{ textAlign: "center",fontSize:"30px" }}>Welcome to Meraki API</h1>
+			<h1 style={{ textAlign: "center", fontSize: "30px" }}>
+				Welcome to Meraki API
+			</h1>
 			{networks.length > 0 ? (
 				<>
 					<Container fluid>
 						<Row>
 							<Col>
-								<Form.Select
-									onChange={e =>
-										setTypeFilter(e.target.value)
-									}>
-									<option value="">All</option>
-									<option value="user">Users</option>
-									<option value="site">Sites</option>
-									<option value="other">Other</option>
-								</Form.Select>
+								<Accordion>
+									<Accordion.Item eventKey="0">
+										<Accordion.Header>
+											Filter
+										</Accordion.Header>
+										<Accordion.Body>
+											<Form>
+												<Form.Check
+													type="checkbox"
+													label="user"
+													onChange={
+														typeFilter.some(
+															element =>
+																element ===
+																"user"
+														)
+															? () =>
+																	setTypeFilter(
+																		typeFilter.filter(
+																			element =>
+																				element !==
+																				"user"
+																		)
+																	)
+															: () =>
+																	setTypeFilter(
+																		[
+																			...typeFilter,
+																			"user"
+																		]
+																	)
+													}
+													checked={typeFilter.includes(
+														"user"
+													)}
+												/>
+												<Form.Check
+													type="checkbox"
+													label="site"
+													onChange={
+														typeFilter.some(
+															element =>
+																element ===
+																"site"
+														)
+															? () =>
+																	setTypeFilter(
+																		typeFilter.filter(
+																			element =>
+																				element !==
+																				"site"
+																		)
+																	)
+															: () =>
+																	setTypeFilter(
+																		[
+																			...typeFilter,
+																			"site"
+																		]
+																	)
+													}
+													checked={typeFilter.includes(
+														"site"
+													)}
+												/>
+												<Form.Check
+													type="checkbox"
+													label="other"
+													onChange={
+														typeFilter.some(
+															element =>
+																element ===
+																"other"
+														)
+															? () =>
+																	setTypeFilter(
+																		typeFilter.filter(
+																			element =>
+																				element !==
+																				"other"
+																		)
+																	)
+															: () =>
+																	setTypeFilter(
+																		[
+																			...typeFilter,
+																			"other"
+																		]
+																	)
+													}
+													checked={typeFilter.includes(
+														"other"
+													)}
+												/>
+											</Form>
+										</Accordion.Body>
+									</Accordion.Item>
+								</Accordion>
 							</Col>
 							<Col>
-								<Form.Control type="text" placeholder="Search..."></Form.Control>
+								<Form.Control
+									type="text"
+									placeholder="Search..."
+									onChange={e =>
+										setSearchValue(e.target.value)
+									}></Form.Control>
 							</Col>
 						</Row>
 					</Container>
