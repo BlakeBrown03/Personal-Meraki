@@ -23,7 +23,13 @@ export default function Login() {
 					<h1 style={{ textAlign: "center" }}>
 						Welcome to Meraki Dashboard
 					</h1>
-					<p style={{ textAlign: "center" }}>Lorem ipsum...</p>
+					<p style={{ textAlign: "center" }}>
+						To generate your own API Key go{" "}
+						<a href="https://account.meraki.com/secure/login/dashboard_login">
+							here
+						</a>
+						, and create an account to generate one
+					</p>
 				</Col>
 				<Col>
 					<Form style={{ textAlign: "center" }}>
