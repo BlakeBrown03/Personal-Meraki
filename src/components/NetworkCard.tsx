@@ -41,7 +41,7 @@ export default function NetworkCards(props: any) {
 								return (
 									<Device
 										{...device}
-										key={device.name}></Device>
+										key={device.mac}></Device>
 								);
 							})}
 						</tbody>
