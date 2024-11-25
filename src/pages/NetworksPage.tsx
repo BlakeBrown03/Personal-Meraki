@@ -120,9 +120,8 @@ function NetworksPage() {
 												}
 												checked={typeFilter.includes(
 													type
-												)}>
-												{type}
-											</Form.Check>
+												)}
+											/>
 										))}
 									</Form>
 								</Card>
