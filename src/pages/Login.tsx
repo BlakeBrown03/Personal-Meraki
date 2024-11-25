@@ -39,6 +39,7 @@ export default function Login() {
 								type="text"
 								placeholder="Enter API Key"
 								onChange={e => setKey(e.target.value)}
+                                onKeyDown={e => e.key === "Enter" ? registerKey(e) : null}
 							/>
 						</Form.Group>
 						<Button

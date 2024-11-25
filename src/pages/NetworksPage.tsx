@@ -106,7 +106,8 @@ function NetworksPage() {
 									style={{
 										paddingTop: 5,
 										paddingBottom: 5,
-										textAlign: "center"
+										textAlign: "center",
+										paddingLeft: 5
 									}}>
 									<Form>
 										{availableTypes.map((type: string) => (
