@@ -44,11 +44,21 @@ function NetworksPage() {
 		console.log(typeFilter);
 		setShownNetworks(
 			networks.filter((network: any) => {
-				if (typeFilter === "site" && network.name.substring(0,4) === "site") {
+				if (
+					typeFilter === "site" &&
+					network.name.substring(0, 4) === "site"
+				) {
 					return network;
-				} else if (typeFilter === "user" && network.name.substring(0,3) === "usr") {
-					return network; 
-				} else if (typeFilter === "other" && network.name.substring(0,3) !== "usr" && network.name.substring(0,4) !== "site") {
+				} else if (
+					typeFilter === "user" &&
+					network.name.substring(0, 3) === "usr"
+				) {
+					return network;
+				} else if (
+					typeFilter === "other" &&
+					network.name.substring(0, 3) !== "usr" &&
+					network.name.substring(0, 4) !== "site"
+				) {
 					return network;
 				} else if (typeFilter === "") {
 					return network;
@@ -66,12 +76,24 @@ function NetworksPage() {
 			<h1 style={{ textAlign: "center",fontSize:"30px" }}>Welcome to Meraki API</h1>
 			{networks.length > 0 ? (
 				<>
-					<Form.Select onChange={(e) => setTypeFilter(e.target.value)}>
-						<option value="">All</option>
-						<option value="user">Users</option>
-						<option value="site">Sites</option>
-						<option value="other">Other</option>
-					</Form.Select>
+					<Container fluid>
+						<Row>
+							<Col>
+								<Form.Select
+									onChange={e =>
+										setTypeFilter(e.target.value)
+									}>
+									<option value="">All</option>
+									<option value="user">Users</option>
+									<option value="site">Sites</option>
+									<option value="other">Other</option>
+								</Form.Select>
+							</Col>
+							<Col>
+								<Form.Control type="text" placeholder="Search..."></Form.Control>
+							</Col>
+						</Row>
+					</Container>
 					<Container fluid>
 						<Row>
 							{shownNetworks
