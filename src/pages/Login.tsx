@@ -1,25 +1,49 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-    const [key,setKey] = useState("");
+	const [key, setKey] = useState("");
+	const navigate = useNavigate();
 
-    function registerKey(e: any): void {
-        e?.preventDefault();
-        if (key === "") {
-            alert("Please enter an API key");
-            return;
-        } 
-        sessionStorage.setItem("apiKey", JSON.stringify(key.toLowerCase()));
-    };
+	function registerKey(e: any): void {
+		e?.preventDefault();
+		if (key === "") {
+			alert("Please enter an API key");
+			return;
+		}
+		sessionStorage.setItem("apiKey", JSON.stringify(key.toLowerCase()));
+		navigate("/networks");
+	}
 
-    return (
-        <Form style={{textAlign: "center"}}>
-            <Form.Group>
-                <Form.Label>API Key</Form.Label>
-                <Form.Control type="text" placeholder="Enter API Key" onChange={(e) => setKey(e.target.value)}/>
-            </Form.Group>
-            <Button variant="primary" onClick={registerKey}>Submit</Button>
-        </Form>
-    );
-};
+	return (
+		<Container fluid>
+			<Row>
+				<Col>
+					<h1 style={{ textAlign: "center" }}>
+						Welcome to Meraki Dashboard
+					</h1>
+					<p style={{ textAlign: "center" }}>Lorem ipsum...</p>
+				</Col>
+				<Col>
+					<Form style={{ textAlign: "center" }}>
+						<Form.Group>
+							<Form.Label>API Key</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="Enter API Key"
+								onChange={e => setKey(e.target.value)}
+							/>
+						</Form.Group>
+						<Button
+							variant="primary"
+							onClick={registerKey}
+							style={{ marginTop: 10 }}>
+							Submit
+						</Button>
+					</Form>
+				</Col>
+			</Row>
+		</Container>
+	);
+}
