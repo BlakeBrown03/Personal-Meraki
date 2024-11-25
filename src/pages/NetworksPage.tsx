@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import NetworkCard from "../components/NetworkCard";
-import {
-	Accordion,
-	Col,
-	Container,
-	Form,
-	Pagination,
-	Row
-} from "react-bootstrap";
+import { Card, Col, Container, Form, Pagination, Row } from "react-bootstrap";
 
 function NetworksPage() {
 	const [networks, setNetworks] = useState([]);
@@ -49,7 +42,6 @@ function NetworksPage() {
 	}
 
 	useEffect(() => {
-		console.log(typeFilter);
 		setShownNetworks(
 			networks.filter((network: any) => {
 				if (
@@ -94,107 +86,94 @@ function NetworksPage() {
 			</h1>
 			{networks.length > 0 ? (
 				<>
-					<Container fluid>
+					<Container>
 						<Row>
-							<Col>
-								<Accordion>
-									<Accordion.Item eventKey="0">
-										<Accordion.Header>
-											Filter
-										</Accordion.Header>
-										<Accordion.Body>
-											<Form>
-												<Form.Check
-													type="checkbox"
-													label="user"
-													onChange={
-														typeFilter.some(
-															element =>
-																element ===
+							<Col xs={3}>
+								<Card style={{paddingTop: 5, paddingBottom: 5, textAlign: "center"}}>
+									<Form>
+										<Form.Check
+											inline
+											type="checkbox"
+											label="user"
+											onChange={
+												typeFilter.some(
+													element =>
+														element === "user"
+												)
+													? () =>
+															setTypeFilter(
+																typeFilter.filter(
+																	element =>
+																		element !==
+																		"user"
+																)
+															)
+													: () =>
+															setTypeFilter([
+																...typeFilter,
 																"user"
-														)
-															? () =>
-																	setTypeFilter(
-																		typeFilter.filter(
-																			element =>
-																				element !==
-																				"user"
-																		)
-																	)
-															: () =>
-																	setTypeFilter(
-																		[
-																			...typeFilter,
-																			"user"
-																		]
-																	)
-													}
-													checked={typeFilter.includes(
-														"user"
-													)}
-												/>
-												<Form.Check
-													type="checkbox"
-													label="site"
-													onChange={
-														typeFilter.some(
-															element =>
-																element ===
+															])
+											}
+											checked={typeFilter.includes(
+												"user"
+											)}
+										/>
+										<Form.Check
+											inline
+											type="checkbox"
+											label="site"
+											onChange={
+												typeFilter.some(
+													element =>
+														element === "site"
+												)
+													? () =>
+															setTypeFilter(
+																typeFilter.filter(
+																	element =>
+																		element !==
+																		"site"
+																)
+															)
+													: () =>
+															setTypeFilter([
+																...typeFilter,
 																"site"
-														)
-															? () =>
-																	setTypeFilter(
-																		typeFilter.filter(
-																			element =>
-																				element !==
-																				"site"
-																		)
-																	)
-															: () =>
-																	setTypeFilter(
-																		[
-																			...typeFilter,
-																			"site"
-																		]
-																	)
-													}
-													checked={typeFilter.includes(
-														"site"
-													)}
-												/>
-												<Form.Check
-													type="checkbox"
-													label="other"
-													onChange={
-														typeFilter.some(
-															element =>
-																element ===
+															])
+											}
+											checked={typeFilter.includes(
+												"site"
+											)}
+										/>
+										<Form.Check
+											inline
+											type="checkbox"
+											label="other"
+											onChange={
+												typeFilter.some(
+													element =>
+														element === "other"
+												)
+													? () =>
+															setTypeFilter(
+																typeFilter.filter(
+																	element =>
+																		element !==
+																		"other"
+																)
+															)
+													: () =>
+															setTypeFilter([
+																...typeFilter,
 																"other"
-														)
-															? () =>
-																	setTypeFilter(
-																		typeFilter.filter(
-																			element =>
-																				element !==
-																				"other"
-																		)
-																	)
-															: () =>
-																	setTypeFilter(
-																		[
-																			...typeFilter,
-																			"other"
-																		]
-																	)
-													}
-													checked={typeFilter.includes(
-														"other"
-													)}
-												/>
-											</Form>
-										</Accordion.Body>
-									</Accordion.Item>
-								</Accordion>
+															])
+											}
+											checked={typeFilter.includes(
+												"other"
+											)}
+										/>
+									</Form>
+								</Card>
 							</Col>
 							<Col>
 								<Form.Control
