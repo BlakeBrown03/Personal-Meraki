@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import NetworkCard from "../components/NetworkCard";
 import { Card, Col, Container, Form, Pagination, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function NetworksPage() {
 	const [networks, setNetworks] = useState([]);
@@ -9,6 +10,7 @@ function NetworksPage() {
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
 	const [typeFilter, setTypeFilter] = useState(["user", "site", "other"]);
 	const [searchValue, setSearchValue] = useState("");
+	const navigate = useNavigate();
 
 	async function fetchData() {
 		const response = await fetch(
@@ -19,10 +21,14 @@ function NetworksPage() {
 				}
 			}
 		);
+		if (response.status !== 200) {
+			alert("Invalid API Key");
+			navigate("/");
+			return;
+		}
 		const respData = await response.json();
 		setNetworks(respData);
 		setShownNetworks(respData);
-		// console.log(respData);
 	}
 
 	function buildPaginator() {
@@ -209,7 +215,7 @@ function NetworksPage() {
 								))}
 						</Row>
 					</Container>
-					<Pagination>
+					<Pagination size="sm">
 						<Pagination.Item
 							onClick={() => setPage(page - 1)}
 							disabled={page === 1}>
