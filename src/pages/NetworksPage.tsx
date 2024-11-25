@@ -45,17 +45,17 @@ function NetworksPage() {
 		setShownNetworks(
 			networks.filter((network: any) => {
 				if (
-					typeFilter.some(element => element === "site") &&
+					typeFilter.includes("site") &&
 					network.name.substring(0, 4) === "site"
 				) {
 					return network;
 				} else if (
-					typeFilter.some(element => element === "user") &&
+					typeFilter.includes("user") &&
 					network.name.substring(0, 3) === "usr"
 				) {
 					return network;
 				} else if (
-					typeFilter.some(element => element === "other") &&
+					typeFilter.includes("other") &&
 					network.name.substring(0, 3) !== "usr" &&
 					network.name.substring(0, 4) !== "site"
 				) {
@@ -89,7 +89,12 @@ function NetworksPage() {
 					<Container>
 						<Row>
 							<Col xs={3}>
-								<Card style={{paddingTop: 5, paddingBottom: 5, textAlign: "center"}}>
+								<Card
+									style={{
+										paddingTop: 5,
+										paddingBottom: 5,
+										textAlign: "center"
+									}}>
 									<Form>
 										<Form.Check
 											inline
