@@ -24,6 +24,9 @@ export default function Layout() {
 						<Nav.Link as={Link} to="networks">
 							Networks
 						</Nav.Link>
+						<Nav.Link as={Link} to="clients">
+							Clients
+						</Nav.Link>
 						<Nav.Link as={Link} to="health-check">
 							Health Check
 						</Nav.Link>
