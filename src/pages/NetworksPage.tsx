@@ -13,6 +13,9 @@ function NetworksPage() {
 	const navigate = useNavigate();
 	const availableTypes: string[] = ["user", "site", "other"];
 
+	/**
+	 * Fetches the networks from the Meraki API
+	 */
 	async function fetchData(): Promise<void> {
 		const response = await fetch(
 			"http://localhost:3000/https://api.meraki.com/api/v1/organizations/289024/networks",
@@ -32,6 +35,10 @@ function NetworksPage() {
 		setShownNetworks(respData);
 	}
 
+	/**
+	 * Splits the up the data into equal parts of 24
+	 * @returns {JSX.Element[]} an array of JSX elements representing the pagination
+	 */
 	function buildPaginator(): JSX.Element[] {
 		const pages: number = Math.ceil(shownNetworks.length / 24);
 		const paginator = [];
@@ -48,6 +55,10 @@ function NetworksPage() {
 		return paginator;
 	}
 
+	/**
+	 * Handles the filtering of the networks based on the type
+	 * @param type the type of network to filter by
+	 */
 	function handleCheckboxChange(type: string): void {
 		setTypeFilter((prev: string[]) => {
 			return prev.includes(type)
@@ -56,6 +67,9 @@ function NetworksPage() {
 		});
 	}
 
+	/**
+	 * Filters the networks based on the type
+	 */
 	useEffect(() => {
 		setShownNetworks(
 			networks.filter((network: any) => {
@@ -78,6 +92,10 @@ function NetworksPage() {
 		);
 	}, [typeFilter]);
 
+
+	/**
+	 * Filters the networks based on the search value
+	 */
 	useEffect(() => {
 		setShownNetworks(
 			networks.filter((network: any) => {
@@ -88,6 +106,9 @@ function NetworksPage() {
 		);
 	}, [searchValue]);
 
+	/**
+	 * Fetches the data when the page loads
+	 */
 	useEffect(() => {
 		fetchData();
 	}, []);

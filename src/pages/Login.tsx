@@ -6,6 +6,10 @@ export default function Login() {
 	const [key, setKey] = useState("");
 	const navigate = useNavigate();
 
+	/**
+	 * Sets the API key in sessionStorage and navigates to the networks page
+	 * @param e prevents default form submission
+	 */
 	function registerKey(e: any): void {
 		e?.preventDefault();
 		if (key === "") {
