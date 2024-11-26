@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import LoginStatusContext from "../LoginStatusContext";
 
 export default function Login() {
 	const [key, setKey] = useState("");
 	const navigate = useNavigate();
+	const [loginStatus, setLoginStatus] = useContext(LoginStatusContext);
 
+	/**
+	 * Sets the API key in sessionStorage and navigates to the networks page
+	 * @param e prevents default form submission
+	 */
 	function registerKey(e: any): void {
 		e?.preventDefault();
 		if (key === "") {
@@ -13,6 +19,7 @@ export default function Login() {
 			return;
 		}
 		sessionStorage.setItem("apiKey", JSON.stringify(key.toLowerCase()));
+		setLoginStatus(true);
 		navigate("/networks");
 	}
 
@@ -39,7 +46,9 @@ export default function Login() {
 								type="text"
 								placeholder="Enter API Key"
 								onChange={e => setKey(e.target.value)}
-                                onKeyDown={e => e.key === "Enter" ? registerKey(e) : null}
+								onKeyDown={e =>
+									e.key === "Enter" ? registerKey(e) : null
+								}
 							/>
 						</Form.Group>
 						<Button
