@@ -1,5 +1,7 @@
-import { createContext, Dispatch, SetStateAction } from "react";
+import { createContext } from "react";
 
-const LoginStatusContext = createContext<[boolean, Dispatch<SetStateAction<boolean>>] | null>(null);
+const LoginStatusContext = createContext<
+	[boolean, React.Dispatch<React.SetStateAction<boolean>>]
+>([false, () => {}]);
 
 export default LoginStatusContext;

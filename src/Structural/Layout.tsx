@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
 import LoginStatusContext from "../LoginStatusContext";
@@ -50,7 +50,7 @@ export default function Layout() {
 			</Navbar>
 			<Container>
 				<LoginStatusContext.Provider
-					value={[loginStatus, setLoginStatus ]}>
+					value={[loginStatus, setLoginStatus]}>
 					<Outlet />
 				</LoginStatusContext.Provider>
 			</Container>
