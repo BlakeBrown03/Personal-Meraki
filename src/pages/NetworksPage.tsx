@@ -93,7 +93,6 @@ function NetworksPage() {
 		);
 	}, [typeFilter]);
 
-
 	/**
 	 * Filters the networks based on the search value
 	 */
@@ -124,30 +123,20 @@ function NetworksPage() {
 					<Container fluid>
 						<Row>
 							<Col xs={3} md="auto">
-								<Card
-									style={{
-										paddingTop: 5,
-										paddingBottom: 5,
-										textAlign: "center",
-										paddingLeft: 5
-									}}>
-									<Form>
-										{availableTypes.map((type: string) => (
-											<Form.Check
-												key={type}
-												inline
-												type="checkbox"
-												label={type}
-												onChange={() =>
-													handleCheckboxChange(type)
-												}
-												checked={typeFilter.includes(
-													type
-												)}
-											/>
-										))}
-									</Form>
-								</Card>
+								<Form>
+									{availableTypes.map((type: string) => (
+										<Form.Check
+											key={type}
+											inline
+											type="checkbox"
+											label={type}
+											onChange={() =>
+												handleCheckboxChange(type)
+											}
+											checked={typeFilter.includes(type)}
+										/>
+									))}
+								</Form>
 							</Col>
 							<Col>
 								<Form.Control
