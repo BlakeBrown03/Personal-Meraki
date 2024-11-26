@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
+import LoginStatusContext from "../LoginStatusContext";
 
 export default function Layout() {
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
-	const [loginStatus, setLoginStatus] = useState<boolean>(apiKey !== "" ? true : false);
+	const [loginStatus, setLoginStatus] = useState<boolean>(
+		apiKey !== "" ? true : false
+	);
 	const [displayNavs, setDisplayNavs] = useState<JSX.Element | null>(null);
 
 	/**
@@ -13,18 +16,22 @@ export default function Layout() {
 	 * @returns {boolean} true if the user is logged in, false otherwise
 	 */
 	useEffect(() => {
-		console.log(apiKey);
+		console.log(apiKey, loginStatus);
 		if (loginStatus) {
 			setDisplayNavs(() => {
-				return <>
-					<Nav.Link as={Link} to="networks">
-						Networks
-					</Nav.Link>
-					<Nav.Link as={Link} to="health-check">
-						Health Check
-					</Nav.Link>
-				</>;
+				return (
+					<>
+						<Nav.Link as={Link} to="networks">
+							Networks
+						</Nav.Link>
+						<Nav.Link as={Link} to="health-check">
+							Health Check
+						</Nav.Link>
+					</>
+				);
 			});
+		} else {
+			setDisplayNavs(() => <></>);
 		}
 	}, [loginStatus]);
 
@@ -42,7 +49,10 @@ export default function Layout() {
 				</Nav>
 			</Navbar>
 			<Container>
-				<Outlet />
+				<LoginStatusContext.Provider
+					value={[loginStatus, setLoginStatus ]}>
+					<Outlet />
+				</LoginStatusContext.Provider>
 			</Container>
 		</div>
 	);

@@ -27,6 +27,7 @@ function NetworksPage() {
 		);
 		if (response.status !== 200) {
 			alert("Invalid API Key");
+			sessionStorage.removeItem("apiKey");
 			navigate("/");
 			return;
 		}
