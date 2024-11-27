@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import NetworksPage from "../pages/NetworksPage";
 import Login from "../pages/Login";
 import HealthCheck from "../pages/HealthCheck";
+import Clients from "../pages/Clients";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 				<Route path="/" element={<Layout />}>
 					<Route index element={<Login />} />
 					<Route path="/networks" element={<NetworksPage />} />
+					<Route path="/clients" element={<Clients />} />
 					<Route path="/health-check" element={<HealthCheck />} />
 				</Route>
 			</Routes>

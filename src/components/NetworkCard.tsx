@@ -4,6 +4,7 @@ import Device from "./Device";
 
 export default function NetworkCards(props: any) {
 	const [networkData, setNetworkData] = useState<any>([]);
+	const [emptyNetwork, setEmptyNetwork] = useState<boolean>(false);
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
 
 	async function handleNetworkClick(): Promise<void> {
@@ -16,6 +17,9 @@ export default function NetworkCards(props: any) {
 			}
 		);
 		const respData = await fetchData.json();
+		if (respData.length === 0) {
+			setEmptyNetwork(true);
+		}
 		setNetworkData(respData);
 		console.log(respData);
 	}
@@ -25,27 +29,31 @@ export default function NetworkCards(props: any) {
 			<Accordion.Item eventKey="0">
 				<Accordion.Header>{props.name}</Accordion.Header>
 				<Accordion.Body onEnter={handleNetworkClick}>
-					<Table responsive>
-						<thead>
-							<tr>
-								<th>hostname</th>
-								<th>type</th>
-								<th>model</th>
-								<th>lan IP</th>
-								<th>mac</th>
-								<th>serial</th>
-							</tr>
-						</thead>
-						<tbody>
-							{networkData.map((device: any) => {
-								return (
-									<Device
-										{...device}
-										key={device.mac}></Device>
-								);
-							})}
-						</tbody>
-					</Table>
+					{emptyNetwork ? (
+						<h6>There are no devices on this network</h6>
+					) : (
+						<Table responsive>
+							<thead>
+								<tr>
+									<th>hostname</th>
+									<th>type</th>
+									<th>model</th>
+									<th>lan IP</th>
+									<th>mac</th>
+									<th>serial</th>
+								</tr>
+							</thead>
+							<tbody>
+								{networkData.map((device: any) => {
+									return (
+										<Device
+											{...device}
+											key={device.mac}></Device>
+									);
+								})}
+							</tbody>
+						</Table>
+					)}
 				</Accordion.Body>
 			</Accordion.Item>
 		</Accordion>

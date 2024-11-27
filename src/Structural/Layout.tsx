@@ -16,13 +16,15 @@ export default function Layout() {
 	 * @returns {boolean} true if the user is logged in, false otherwise
 	 */
 	useEffect(() => {
-		console.log(apiKey, loginStatus);
 		if (loginStatus) {
 			setDisplayNavs(() => {
 				return (
 					<>
 						<Nav.Link as={Link} to="networks">
 							Networks
+						</Nav.Link>
+						<Nav.Link as={Link} to="clients">
+							Clients
 						</Nav.Link>
 						<Nav.Link as={Link} to="health-check">
 							Health Check
