@@ -16,7 +16,6 @@ export default function Layout() {
 	 * @returns {boolean} true if the user is logged in, false otherwise
 	 */
 	useEffect(() => {
-		console.log(apiKey, loginStatus);
 		if (loginStatus) {
 			setDisplayNavs(() => {
 				return (
