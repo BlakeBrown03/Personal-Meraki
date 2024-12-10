@@ -1,0 +1,470 @@
+[
+	{
+		"GA-PWR-90WAC": {"End-of-Support Date": "29-Apr-27", "End-of-Sale Date": "29-Apr-25", "EOS PID": "GA-PWR-90WAC", "Announcement Date": "29-Apr-24", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MR53E": {"Announcement Date": "27-Jan-21", "End-of-Sale Date": "7-Apr-22", "Replacement-Product": "MR46E-HW", "End-of-Support Date": "21-Jul-26", "EOS PID": "MR53E-HW"}
+	},
+	{
+		"MS220 series": {"End-of-Support Date": "29-Jul-24", "Announcement Date": "16-Mar-17", "EOS PID": "MS220-48LP-HW", "Replacement-Product": "MS120-48LP-HW", "End-of-Sale Date": "29-Jul-17"}
+	},
+	{
+		"GS110-48 (UK)": {"End-of-Support Date": "24-Aug-25", "Replacement-Product": "No Replacement", "EOS PID": "GS110-48-HW-UK", "End-of-Sale Date": "24-Aug-23", "Announcement Date": "24-Feb-23"}
+	},
+	{
+		"MS390 FAMILY": {"Replacement-Product": "C9300-48UXM-M", "EOS PID": "MS390-48UX-HW", "End-of-Sale Date": "28-Mar-25", "Announcement Date": "4-Apr-24", "End-of-Support Date": "28-Mar-32"}
+	},
+	{
+		"MA-MNT-MR-10": {"Announcement Date": "18-Aug-23", "End-of-Support Date": "19-Feb-29", "End-of-Sale Date": "19-Feb-24", "Replacement-Product": "No Replacement", "EOS PID": "MA-MNT-MR-10"}
+	},
+	{
+		"GS110-48P (US)": {"End-of-Sale Date": "1-Jun-23", "EOS PID": "GS110-48P-HW-US", "End-of-Support Date": "24-Aug-25", "Replacement-Product": "No Replacement", "Announcement Date": "24-Feb-23"}
+	},
+	{
+		"MC74": {"Replacement-Product": "No Replacement", "End-of-Support Date": "1-Apr-19", "Announcement Date": "27-Sep-18", "EOS PID": "MC74-HW", "End-of-Sale Date": "1-Oct-18"}
+	},
+	{
+		"Mini": {"End-of-Sale Date": "31-Dec-10", "EOS PID": "MINI-STD-US", "End-of-Support Date": "25-Sep-17", "Replacement-Product": "No Replacement", "Announcement Date": "3-Sep-10"}
+	},
+	{
+		"GS110-24P (UK)": {"End-of-Support Date": "24-Aug-25", "Announcement Date": "24-Feb-23", "Replacement-Product": "No Replacement", "EOS PID": "GS110-24P-HW-UK", "End-of-Sale Date": "24-Aug-23"}
+	},
+	{
+		"MA-MNT-MR-6": {"Replacement-Product": "No Replacement", "Announcement Date": "18-Aug-23", "End-of-Support Date": "19-Feb-29", "End-of-Sale Date": "19-Feb-24", "EOS PID": "MA-MNT-MR-6"}
+	},
+	{
+		"MS220-8": {"EOS PID": "MS220-8P-HW", "Replacement-Product": "MS120-8FP-HW", "Announcement Date": "9-Jan-18", "End-of-Sale Date": "21-Sep-18", "End-of-Support Date": "21-Sep-25"}
+	},
+	{
+		"MS120 FAMILY": {"EOS PID": "MS120-8FP-HW", "End-of-Sale Date": "28-Mar-25", "End-of-Support Date": "28-Mar-30", "Replacement-Product": "MS130-8P-HW", "Announcement Date": "28-Mar-24"}
+	},
+	{
+		"GR62-HW-US": {"EOS PID": "GR62-HW-US", "Replacement-Product": "MR78-HW", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "End-of-Support Date": "29-Apr-27"}
+	},
+	{
+		"MX70": {"Announcement Date": "18-Jan-12", "End-of-Support Date": "31-Mar-17", "Replacement-Product": "MX80-HW", "End-of-Sale Date": "31-Mar-12", "EOS PID": "MX70-HW"}
+	},
+	{
+		"LIC-GX-UMB-5Y": {"Announcement Date": "29-Apr-24", "EOS PID": "LIC-GX-UMB-5Y", "End-of-Sale Date": "29-Apr-24", "End-of-Support Date": "29-Apr-29", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MR66": {"EOS PID": "MR66-HW", "Announcement Date": "7-Jun-17", "Replacement-Product": "MR74-HW", "End-of-Sale Date": "9-Jun-17", "End-of-Support Date": "9-Jun-24"}
+	},
+	{
+		"GA-PWR-12W-US": {"Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "No Replacement", "EOS PID": "GA-PWR-12W-US", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"LIC-MI-XL (1D, 1YR, 3YR, 5YR, 7YR, 10YR)": {"EOS PID": "LIC-MI-XL-7YR", "End-of-Sale Date": "26-Jul-24", "Replacement-Product": "No Replacement", "End-of-Support Date": "29-Jul-29", "Announcement Date": "26-Jan-24"}
+	},
+	{
+		"Systems Manager Support License": {"EOS PID": "LIC-SM-5YR", "End-of-Sale Date": "22-Sep-14", "End-of-Support Date": "End of customer’s license", "Announcement Date": "22-Sep-14", "Replacement-Product": "LIC-SME-5YR"}
+	},
+	{
+		"MR14": {"EOS PID": "MR14-HW", "Announcement Date": "29-May-12", "End-of-Support Date": "30-Aug-17", "Replacement-Product": "MR16-HW-Indoor", "End-of-Sale Date": "30-Aug-12"}
+	},
+	{
+		"GA-PWR-12W-EU": {"End-of-Sale Date": "29-Apr-25", "EOS PID": "GA-PWR-12W-EU", "Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MR24": {"End-of-Sale Date": "31-May-14", "Announcement Date": "27-Feb-14", "EOS PID": "MR24-HW", "End-of-Support Date": "31-May-21", "Replacement-Product": "MR42-HW"}
+	},
+	{
+		"OD2": {"Replacement-Product": "No Replacement", "EOS PID": "POE-INJ-1", "Announcement Date": "26-Jul-12", "End-of-Sale Date": "30-Oct-12", "End-of-Support Date": "30-Oct-17"}
+	},
+	{
+		"GR10 (US)": {"Replacement-Product": "GR12-HW-US", "EOS PID": "GR10-HW-US", "End-of-Support Date": "24-Apr-25", "Announcement Date": "21-Oct-22", "End-of-Sale Date": "24-Apr-23"}
+	},
+	{
+		"GR10 (UK)": {"Replacement-Product": "GR12-HW-EU", "Announcement Date": "21-Oct-22", "EOS PID": "GR10-HW-EU", "End-of-Support Date": "24-Apr-25", "End-of-Sale Date": "24-Apr-23"}
+	},
+	{
+		"GX50-HW-US": {"End-of-Sale Date": "29-Apr-25", "Announcement Date": "29-Apr-24", "EOS PID": "GX50-HW-US", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "MX67-HW"}
+	},
+	{
+		"SFP/SFP+ Accessories": {"EOS PID": "SFP-1GB-SX", "Replacement-Product": "MA-SFP-1GB-SX", "End-of-Sale Date": "26-Apr-14", "End-of-Support Date": "26-Apr-21", "Announcement Date": "5-Nov-13"}
+	},
+	{
+		"MA-INJ-4-XX (AU, CN, EU, UK, US)": {"Announcement Date": "29-Oct-21", "EOS PID": "MA-INJ-4-US", "End-of-Support Date": "30-Nov-22", "End-of-Sale Date": "30-Nov-21", "Replacement-Product": "MA-INJ-4"}
+	},
+	{
+		"GA-MNT-GR-2": {"EOS PID": "GA-MNT-GR-2", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "No Replacement", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"MA-MNT-MR-H1": {"End-of-Sale Date": "13-Jun-23", "Replacement-Product": "MA-MNT-MR-H1A", "EOS PID": "MA-MNT-MR-H1", "End-of-Support Date": "13-Jun-28", "Announcement Date": "19-Dec-22"}
+	},
+	{
+		"GR12-HW-UK": {"End-of-Support Date": "29-Apr-27", "EOS PID": "GR12-HW-UK", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "Replacement-Product": "MR28-HW"}
+	},
+	{
+		"GS110-24P (US)": {"Replacement-Product": "No Replacement", "End-of-Sale Date": "1-Jun-23", "Announcement Date": "24-Feb-23", "EOS PID": "GS110-24P-HW-US", "End-of-Support Date": "24-Aug-25"}
+	},
+	{
+		"802.3af PoE Injector": {"Replacement-Product": "MA-INJ-4-US", "EOS PID": "POE-INJ-3-US", "End-of-Sale Date": "31-May-14", "Announcement Date": "27-Feb-14", "End-of-Support Date": "31-May-21"}
+	},
+	{
+		"MX64, MX64W": {"End-of-Support Date": "26-Jul-27", "End-of-Sale Date": "26-Jul-22", "EOS PID": "MX64W-HW", "Replacement-Product": "MX67W-HW", "Announcement Date": "26-Jan-22"}
+	},
+	{
+		"MS420": {"Replacement-Product": "MA-PWR250WAC", "Announcement Date": "1-Aug-16", "EOS PID": "PWR-MS420-400AC-R", "End-of-Sale Date": "31-Oct-16", "End-of-Support Date": "31-Oct-23"}
+	},
+	{
+		"EAB-VMX100-3Y": {"End-of-Support Date": "22-Dec-27", "End-of-Sale Date": "13-Dec-23", "Replacement-Product": "EAB-VMX-M-3Y", "Announcement Date": "12-Dec-23", "EOS PID": "EAB-VMX100-3Y"}
+	},
+	{
+		"MR30H": {"Replacement-Product": "MR36H-HW", "End-of-Sale Date": "31-May-22", "Announcement Date": "25-Mar-22", "End-of-Support Date": "26-Jul-27", "EOS PID": "MR30H-HW"}
+	},
+	{
+		"GS110-48 (EU)": {"End-of-Sale Date": "24-Aug-23", "End-of-Support Date": "24-Aug-25", "Announcement Date": "24-Feb-23", "EOS PID": "GS110-48-HW-EU", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MR74": {"End-of-Support Date": "21-Jul-26", "Announcement Date": "27-Jan-21", "EOS PID": "MR74-HW", "Replacement-Product": "MR76-HW", "End-of-Sale Date": "21-Jul-21"}
+	},
+	{
+		"MX600": {"EOS PID": "MX600-HW", "Announcement Date": "28-Feb-18", "End-of-Support Date": "20-May-25", "Replacement-Product": "MX450-HW", "End-of-Sale Date": "20-May-18"}
+	},
+	{
+		"MR62": {"EOS PID": "MR62-HW", "End-of-Sale Date": "15-Nov-17", "Announcement Date": "15-Aug-17", "End-of-Support Date": "15-Nov-24", "Replacement-Product": "MR74-HW"}
+	},
+	{
+		"MS350 FAMILY": {"End-of-Sale Date": "8-Aug-25", "Announcement Date": "28-Aug-24", "EOS PID": "MS350-48LP-HW", "End-of-Support Date": "8-Aug-30", "Replacement-Product": "C9300-48P-M"}
+	},
+	{
+		"MR34": {"End-of-Sale Date": "31-Oct-16", "Replacement-Product": "MR42-HW", "EOS PID": "MR34-HW", "End-of-Support Date": "31-Oct-23", "Announcement Date": "1-Aug-16"}
+	},
+	{
+		"MX50": {"EOS PID": "MX50-HW", "End-of-Sale Date": "1-Sep-11", "End-of-Support Date": "1-Sep-16", "Replacement-Product": "MX60-HW", "Announcement Date": "15-Jul-11"}
+	},
+	{
+		"MA-MNT-MR-H3": {"End-of-Sale Date": "13-Jun-23", "EOS PID": "MA-MNT-MR-H3", "End-of-Support Date": "13-Jun-28", "Replacement-Product": "MA-MNT-MR-H3A", "Announcement Date": "19-Dec-22"}
+	},
+	{
+		"GR12-HW-EU": {"Replacement-Product": "MR28-HW", "EOS PID": "GR12-HW-EU", "End-of-Support Date": "29-Apr-27", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"MA-MNT-MR-9": {"End-of-Support Date": "19-Feb-29", "End-of-Sale Date": "19-Feb-24", "Announcement Date": "18-Aug-23", "EOS PID": "MA-MNT-MR-9", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MX65": {"End-of-Sale Date": "28-May-19", "Announcement Date": "20-Nov-18", "EOS PID": "MX65W-HW", "Replacement-Product": "MX68W-HW", "End-of-Support Date": "28-May-26"}
+	},
+	{
+		"MR84": {"End-of-Support Date": "21-Jul-26", "Announcement Date": "27-Jan-21", "End-of-Sale Date": "7-May-21", "Replacement-Product": "MR86-HW", "EOS PID": "MR84-HW"}
+	},
+	{
+		"MR58": {"End-of-Sale Date": "30-Oct-12", "EOS PID": "MR58-PRO", "Replacement-Product": "MR66-HW", "End-of-Support Date": "30-Oct-17", "Announcement Date": "26-Jul-12"}
+	},
+	{
+		"MS125 FAMILY": {"End-of-Sale Date": "28-Mar-25", "EOS PID": "MS125-48LP-HW", "End-of-Support Date": "28-Mar-30", "Announcement Date": "28-Mar-24", "Replacement-Product": "MS130-48X-HW"}
+	},
+	{
+		"Solar": {"End-of-Sale Date": "31-Dec-10", "EOS PID": "SOL-PWR-CBL", "Replacement-Product": "No Replacement", "Announcement Date": "3-Sep-10", "End-of-Support Date": "31-Dec-15"}
+	},
+	{
+		"GA-PWR-30WAC": {"End-of-Sale Date": "29-Apr-25", "Replacement-Product": "No Replacement", "Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27", "EOS PID": "GA-PWR-30WAC"}
+	},
+	{
+		"GS110-24 (UK)": {"End-of-Support Date": "24-Aug-25", "Announcement Date": "24-Feb-23", "Replacement-Product": "No Replacement", "EOS PID": "GS110-24-HW-UK", "End-of-Sale Date": "24-Aug-23"}
+	},
+	{
+		"GR60 (US)": {"Announcement Date": "21-Oct-22", "Replacement-Product": "GR62-HW-US", "EOS PID": "GR60-HW-US", "End-of-Sale Date": "24-Apr-23", "End-of-Support Date": "24-Apr-25"}
+	},
+	{
+		"MR53": {"End-of-Sale Date": "7-May-21", "Replacement-Product": "MR56-HW", "Announcement Date": "27-Jan-21", "EOS PID": "MR53-HW", "End-of-Support Date": "21-Jul-26"}
+	},
+	{
+		"E3N-VMX 100": {"Announcement Date": "12-Dec-23", "EOS PID": "E3N-VMX100", "Replacement-Product": "E3N-VMX-M", "End-of-Sale Date": "13-Dec-23", "End-of-Support Date": "22-Dec-27"}
+	},
+	{
+		"GA-MNT-MID-1": {"Replacement-Product": "No Replacement", "EOS PID": "GA-MNT-MID-1", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "End-of-Support Date": "29-Apr-27"}
+	},
+	{
+		"MR16": {"EOS PID": "MR16-HW", "Replacement-Product": "MR20-HW", "End-of-Sale Date": "31-May-14", "End-of-Support Date": "31-May-21", "Announcement Date": "27-Feb-14"}
+	},
+	{
+		"MS22": {"EOS PID": "MS22-HW", "End-of-Support Date": "26-Apr-21", "Replacement-Product": "MS120-24-HW", "End-of-Sale Date": "26-Apr-14", "Announcement Date": "5-Nov-13"}
+	},
+	{
+		"MA-MNT-MR-4": {"End-of-Support Date": "19-Feb-29", "Replacement-Product": "No Replacement", "End-of-Sale Date": "19-Feb-24", "EOS PID": "MA-MNT-MR-4", "Announcement Date": "18-Aug-23"}
+	},
+	{
+		"GS110-48P (EU)": {"End-of-Support Date": "24-Aug-25", "Announcement Date": "24-Feb-23", "Replacement-Product": "No Replacement", "EOS PID": "GS110-48P-HW-EU", "End-of-Sale Date": "24-Aug-23"}
+	},
+	{
+		"GS110-8 (US)": {"Replacement-Product": "No Replacement", "EOS PID": "GS110-8-HW-US", "Announcement Date": "24-Feb-23", "End-of-Sale Date": "24-Aug-23", "End-of-Support Date": "24-Aug-25"}
+	},
+	{
+		"MX60W": {"End-of-Support Date": "24-Oct-22", "EOS PID": "MX60W-HW", "Announcement Date": "10-Jul-15", "End-of-Sale Date": "24-Oct-15", "Replacement-Product": "MX64W-HW"}
+	},
+	{
+		"MA-MNT-MR-3": {"End-of-Sale Date": "19-Feb-24", "EOS PID": "MA-MNT-MR-3", "Announcement Date": "18-Aug-23", "End-of-Support Date": "19-Feb-29", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MX84": {"End-of-Support Date": "31-Oct-26", "Announcement Date": "10-Aug-21", "End-of-Sale Date": "31-Oct-21", "EOS PID": "MX84-HW", "Replacement-Product": "MX85-HW"}
+	},
+	{
+		"MA-INJ-5": {"End-of-Support Date": "N/A", "Announcement Date": "1-Jun-21", "End-of-Sale Date": "29-Jun-21", "EOS PID": "MA-INJ-5-US", "Replacement-Product": "MA-INJ-6"}
+	},
+	{
+		"AC-MR-1-XX(AU, EU, UK, US)": {"End-of-Support Date": "9-May-23", "Announcement Date": "9-Feb-16", "End-of-Sale Date": "9-May-16", "Replacement-Product": "MA-PWR-30W-US", "EOS PID": "AC-MR-1-US"}
+	},
+	{
+		"GA-MNT-CLG-1": {"End-of-Sale Date": "29-Apr-25", "Replacement-Product": "No Replacement", "Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27", "EOS PID": "GA-MNT-CLG-1"}
+	},
+	{
+		"GX50-HW-EU": {"Replacement-Product": "MX67-HW", "EOS PID": "GX50-HW-EU", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "End-of-Support Date": "29-Apr-27"}
+	},
+	{
+		"MA-MNT-MR-7": {"Replacement-Product": "No Replacement", "Announcement Date": "18-Aug-23", "EOS PID": "MA-MNT-MR-7", "End-of-Sale Date": "19-Feb-24", "End-of-Support Date": "19-Feb-29"}
+	},
+	{
+		"GR10 (EU)": {"Replacement-Product": "GR12-HW-UK", "End-of-Sale Date": "24-Apr-23", "EOS PID": "GR10-HW-UK", "Announcement Date": "21-Oct-22", "End-of-Support Date": "24-Apr-25"}
+	},
+	{
+		"vMX100": {"Announcement Date": "29-Sep-20", "EOS PID": "LIC-VMX100-5YR", "Replacement-Product": "LIC-VMX-M-ENT-5Y", "End-of-Support Date": "22-Dec-27", "End-of-Sale Date": "22-Dec-20"}
+	},
+	{
+		"GR12-HW-US": {"Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27", "EOS PID": "GR12-HW-US", "Replacement-Product": "MR28-HW", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"MS425 FAMILY": {"EOS PID": "MS425-32-HW", "Announcement Date": "28-Mar-24", "End-of-Sale Date": "24-Jun-24", "Replacement-Product": "C9300X-24Y-M", "End-of-Support Date": "28-Sep-29"}
+	},
+	{
+		"MX90": {"Announcement Date": "5-Nov-13", "End-of-Support Date": "26-Apr-21", "Replacement-Product": "MX100-HW", "EOS PID": "MX90-HW", "End-of-Sale Date": "26-Apr-14"}
+	},
+	{
+		"MV21 & MV71": {"End-of-Sale Date": "19-Jun-19", "End-of-Support Date": "19-Jun-26", "Announcement Date": "19-Mar-19", "EOS PID": "MV71-HW", "Replacement-Product": "MV72-HW"}
+	},
+	{
+		"GS110-48P (UK)": {"End-of-Support Date": "24-Aug-25", "End-of-Sale Date": "9-Mar-23", "EOS PID": "GS110-48P-HW-UK", "Replacement-Product": "No Replacement", "Announcement Date": "24-Feb-23"}
+	},
+	{
+		"GS110-24P (EU)": {"EOS PID": "GS110-24P-HW-EU", "Replacement-Product": "No Replacement", "End-of-Support Date": "24-Aug-25", "Announcement Date": "24-Feb-23", "End-of-Sale Date": "24-Aug-23"}
+	},
+	{
+		"GS110-24 (EU)": {"End-of-Support Date": "24-Aug-25", "Replacement-Product": "No Replacement", "EOS PID": "GS110-24-HW-EU", "Announcement Date": "24-Feb-23", "End-of-Sale Date": "24-Aug-23"}
+	},
+	{
+		"MX80": {"End-of-Support Date": "30-Aug-23", "EOS PID": "MX80-HW", "Announcement Date": "26-Jan-16", "End-of-Sale Date": "30-Aug-16", "Replacement-Product": "MX84-HW"}
+	},
+	{
+		"GR60 (UK)": {"Announcement Date": "21-Oct-22", "End-of-Support Date": "24-Apr-25", "EOS PID": "GR60-HW-EU", "End-of-Sale Date": "24-Apr-23", "Replacement-Product": "GR62-HW-EU"}
+	},
+	{
+		"GS110-8 (UK)": {"Announcement Date": "24-Feb-23", "EOS PID": "GS110-8-HW-UK", "Replacement-Product": "No Replacement", "End-of-Support Date": "24-Aug-25", "End-of-Sale Date": "24-Aug-23"}
+	},
+	{
+		"MG21E-HW-WW": {"Announcement Date": "18-Mar-24", "End-of-Sale Date": "10-Jul-24", "Replacement-Product": "MG41E-HW", "EOS PID": "MG21E-HW-WW", "End-of-Support Date": "18-Sep-29"}
+	},
+	{
+		"GX20-HW-US": {"EOS PID": "GX20-HW-US", "End-of-Sale Date": "20-Jun-24", "Announcement Date": "22-Jan-24", "End-of-Support Date": "20-Jun-26", "Replacement-Product": "GX50-HW-US"}
+	},
+	{
+		"LIC-MI-XS (1D, 1YR, 3YR, 5YR, 7YR, 10YR)": {"EOS PID": "LIC-MI-XS-7YR", "End-of-Support Date": "26-Jul-24", "Replacement-Product": "No Replacement", "End-of-Sale Date": "26-Jul-24", "Announcement Date": "26-Jan-24"}
+	},
+	{
+		"Z1": {"Announcement Date": "27-Apr-18", "Replacement-Product": "Z3-HW", "EOS PID": "Z1-HW-US", "End-of-Support Date": "27-Jul-25", "End-of-Sale Date": "27-Jul-18"}
+	},
+	{
+		"MR42E": {"Replacement-Product": "MR46E-HW", "End-of-Sale Date": "22-Apr-22", "Announcement Date": "27-Jan-21", "End-of-Support Date": "21-Jul-26", "EOS PID": "MR42E-HW"}
+	},
+	{
+		"MR32": {"End-of-Support Date": "31-Jul-24", "Announcement Date": "18-Jan-17", "Replacement-Product": "MR33-HW", "End-of-Sale Date": "30-Apr-17", "EOS PID": "MR32-HW"}
+	},
+	{
+		"GR62-HW-UK": {"End-of-Support Date": "29-Apr-27", "Replacement-Product": "MR78-HW", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "EOS PID": "GR62-HW-UK"}
+	},
+	{
+		"MR26": {"End-of-Support Date": "9-May-23", "Announcement Date": "9-Feb-16", "Replacement-Product": "MR42-HW", "EOS PID": "MR26-HW", "End-of-Sale Date": "9-May-16"}
+	},
+	{
+		"MG21-HW-WW": {"Announcement Date": "18-Mar-24", "End-of-Sale Date": "18-Mar-25", "End-of-Support Date": "18-Sep-29", "EOS PID": "MG21-HW-WW", "Replacement-Product": "MG41-HW"}
+	},
+	{
+		"MX400": {"Announcement Date": "28-Feb-18", "End-of-Support Date": "20-May-25", "Replacement-Product": "MX250-HW", "End-of-Sale Date": "20-May-18", "EOS PID": "MX400-HW"}
+	},
+	{
+		"ANT-13": {"End-of-Support Date": "24-Apr-22", "Announcement Date": "12-Jan-15", "EOS PID": "ANT-13", "End-of-Sale Date": "24-Apr-15", "Replacement-Product": "MA-ANT-23"}
+	},
+	{
+		"MA-MNT-MR-8": {"End-of-Sale Date": "19-Feb-24", "Announcement Date": "18-Aug-23", "Replacement-Product": "No Replacement", "End-of-Support Date": "19-Feb-29", "EOS PID": "MA-MNT-MR-8"}
+	},
+	{
+		"MS22P": {"End-of-Sale Date": "26-Apr-14", "Replacement-Product": "MS120-24P-HW", "EOS PID": "MS22P-HW", "Announcement Date": "5-Nov-13", "End-of-Support Date": "26-Apr-21"}
+	},
+	{
+		"GS110-48 (US)": {"Announcement Date": "24-Feb-23", "Replacement-Product": "No Replacement", "End-of-Support Date": "24-Aug-25", "EOS PID": "GS110-48-HW-US", "End-of-Sale Date": "1-Jun-23"}
+	},
+	{
+		"MR12": {"End-of-Sale Date": "24-Oct-15", "EOS PID": "MR12-HW", "Replacement-Product": "MR20-HW", "End-of-Support Date": "24-Oct-22", "Announcement Date": "27-Jul-15"}
+	},
+	{
+		"MR18": {"End-of-Support Date": "31-Mar-24", "End-of-Sale Date": "13-Feb-17", "Replacement-Product": "MR32-HW", "EOS PID": "MR18-HW", "Announcement Date": "8-Dec-16"}
+	},
+	{
+		"GA-PWR-CORD-EU": {"EOS PID": "GA-PWR-CORD-EU", "Replacement-Product": "No Replacement", "End-of-Sale Date": "29-Apr-25", "Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27"}
+	},
+	{
+		"GA-PWR-12W-UK": {"Replacement-Product": "No Replacement", "End-of-Support Date": "29-Apr-27", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "EOS PID": "GA-PWR-12W-UK"}
+	},
+	{
+		"Z3C-HW-NA": {"Announcement Date": "4-Mar-24", "EOS PID": "Z3C-HW-NA", "End-of-Support Date": "4-Sep-29", "Replacement-Product": "Z4C-HW", "End-of-Sale Date": "4-Sep-24"}
+	},
+	{
+		"MR45": {"Announcement Date": "27-Jan-21", "End-of-Sale Date": "21-Jul-21", "EOS PID": "MR45-HW", "End-of-Support Date": "21-Jul-26", "Replacement-Product": "MR46E-HW"}
+	},
+	{
+		"Wall Plug": {"EOS PID": "WPG-PRO-US", "End-of-Sale Date": "31-Dec-10", "Replacement-Product": "ID2-PRO-US", "End-of-Support Date": "31-Dec-15", "Announcement Date": "3-Sep-10"}
+	},
+	{
+		"MX100": {"End-of-Sale Date": "1-Feb-22", "EOS PID": "MX100-HW", "Announcement Date": "10-Aug-21", "Replacement-Product": "MX95-HW", "End-of-Support Date": "1-Feb-27"}
+	},
+	{
+		"MS42": {"Replacement-Product": "MS125-48-HW", "End-of-Support Date": "26-Apr-21", "EOS PID": "MS42-HW", "Announcement Date": "5-Nov-13", "End-of-Sale Date": "26-Apr-14"}
+	},
+	{
+		"GS110-8P (EU)": {"EOS PID": "GS110-8P-HW-EU", "Replacement-Product": "No Replacement", "End-of-Support Date": "24-Aug-25", "End-of-Sale Date": "24-Aug-23", "Announcement Date": "24-Feb-23"}
+	},
+	{
+		"MA-MNT-MR-1": {"EOS PID": "MA-MNT-MR-1", "Replacement-Product": "No Replacement", "End-of-Sale Date": "19-Feb-24", "End-of-Support Date": "19-Feb-29", "Announcement Date": "18-Aug-23"}
+	},
+	{
+		"ANT-11": {"EOS PID": "ANT-11", "Replacement-Product": "MA-ANT-21", "Announcement Date": "12-Jan-15", "End-of-Support Date": "24-Apr-22", "End-of-Sale Date": "24-Apr-15"}
+	},
+	{
+		"GS110-8 (EU)": {"EOS PID": "GS110-8-HW-EU", "End-of-Support Date": "24-Aug-25", "Replacement-Product": "No Replacement", "End-of-Sale Date": "24-Aug-23", "Announcement Date": "24-Feb-23"}
+	},
+	{
+		"GA-PWR-CORD-UK": {"End-of-Sale Date": "29-Apr-25", "End-of-Support Date": "29-Apr-25", "EOS PID": "GA-PWR-CORD-UK", "Announcement Date": "29-Apr-24", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"Z3-HW": {"Announcement Date": "4-Mar-24", "EOS PID": "Z3-HW", "End-of-Support Date": "4-Sep-29", "Replacement-Product": "Z4-HW", "End-of-Sale Date": "4-Sep-24"}
+	},
+	{
+		"LIC-MI-L (1D, 1YR, 3YR, 5YR, 7YR, 10YR)": {"EOS PID": "LIC-MI-L-7YR", "Replacement-Product": "No Replacement", "End-of-Sale Date": "26-Jul-24", "Announcement Date": "26-Jan-24", "End-of-Support Date": "29-Jul-29"}
+	},
+	{
+		"GX20-HW-EU": {"Announcement Date": "22-Jan-24", "End-of-Support Date": "20-Jun-26", "End-of-Sale Date": "20-Jun-24", "EOS PID": "GX20-HW-EU", "Replacement-Product": "GX50-HW-EU"}
+	},
+	{
+		"MX60": {"EOS PID": "MX60-HW", "End-of-Support Date": "24-Oct-22", "Announcement Date": "10-Jul-15", "Replacement-Product": "MX64-HW", "End-of-Sale Date": "24-Oct-15"}
+	},
+	{
+		"LIC-MI-M (1D, 1YR, 3YR, 5YR, 7YR, 10YR)": {"EOS PID": "LIC-MI-M-7YR", "End-of-Sale Date": "26-Jul-24", "Announcement Date": "26-Jan-24", "End-of-Support Date": "29-Jul-29", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MR55": {"Announcement Date": "15-Feb-22", "End-of-Sale Date": "7-Apr-22", "End-of-Support Date": "1-Aug-27", "Replacement-Product": "MR56-HW", "EOS PID": "MR55-HW"}
+	},
+	{
+		"MS355 FAMILY": {"EOS PID": "MS355-48X-HW", "End-of-Sale Date": "8-Aug-25", "Announcement Date": "28-Aug-24", "End-of-Support Date": "8-Aug-30", "Replacement-Product": "C9300X-48HX-M"}
+	},
+	{
+		"GR62-HW-EU": {"Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "Replacement-Product": "MR78-HW", "End-of-Support Date": "29-Apr-27", "EOS PID": "GR62-HW-EU"}
+	},
+	{
+		"GA-PWR-ADP-1": {"Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "No Replacement", "EOS PID": "GA-PWR-ADP-1", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"MA-MNT-MR-2": {"Announcement Date": "18-Aug-23", "End-of-Sale Date": "19-Feb-24", "EOS PID": "MA-MNT-MR-2", "End-of-Support Date": "19-Feb-29", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"GS110-8P (US)": {"End-of-Support Date": "24-Aug-25", "Announcement Date": "24-Feb-23", "End-of-Sale Date": "1-Jun-23", "EOS PID": "GS110-8P-HW-US", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"GS110-24 (US)": {"Replacement-Product": "No Replacement", "EOS PID": "GS110-24-HW-US", "Announcement Date": "24-Feb-23", "End-of-Sale Date": "24-Aug-23", "End-of-Support Date": "24-Aug-25"}
+	},
+	{
+		"GR60 (EU)": {"End-of-Support Date": "24-Apr-25", "Replacement-Product": "GR62-HW-UK", "EOS PID": "GR60-HW-UK", "End-of-Sale Date": "24-Apr-23", "Announcement Date": "21-Oct-22"}
+	},
+	{
+		"MG21-HW-NA": {"Replacement-Product": "MG41-HW", "EOS PID": "MG21-HW-NA", "Announcement Date": "18-Mar-24", "End-of-Sale Date": "18-Mar-25", "End-of-Support Date": "18-Sep-29"}
+	},
+	{
+		"MR20": {"Announcement Date": "19-Dec-22", "Replacement-Product": "MR28-HW", "EOS PID": "MR20-HW", "End-of-Sale Date": "1-Jun-23", "End-of-Support Date": "13-Jun-28"}
+	},
+	{
+		"MR52": {"Announcement Date": "27-Jan-21", "End-of-Sale Date": "7-Apr-22", "Replacement-Product": "MR46-HW", "End-of-Support Date": "21-Jul-26", "EOS PID": "MR52-HW"}
+	},
+	{
+		"MR11": {"End-of-Sale Date": "30-Aug-12", "Replacement-Product": "MR12-HW", "End-of-Support Date": "30-Aug-17", "Announcement Date": "29-May-12", "EOS PID": "MR11-HW"}
+	},
+	{
+		"GA-MNT-GR-1": {"EOS PID": "GA-MNT-GR-1", "Replacement-Product": "No Replacement", "Announcement Date": "29-Apr-24", "End-of-Support Date": "29-Apr-27", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"ANT-10": {"Announcement Date": "6-Sep-17", "End-of-Support Date": "11-Sep-24", "Replacement-Product": "MA-ANT-20", "End-of-Sale Date": "11-Sep-17", "EOS PID": "ANT-10"}
+	},
+	{
+		"MS22/P and MS42/P licenses": {"Replacement-Product": "LIC-MS42P-HW", "End-of-Support Date": "N/A", "EOS PID": "LIC-MS-ENT-7YR", "Announcement Date": "6-Jan-14", "End-of-Sale Date": "25-Jan-14"}
+	},
+	{
+		"Indoor": {"EOS PID": "ID2-PRO-US", "End-of-Support Date": "30-Jun-16", "End-of-Sale Date": "30-Jun-11", "Announcement Date": "3-Mar-11", "Replacement-Product": "OD2-PRO-US"}
+	},
+	{
+		"MS320 series": {"EOS PID": "MS320-48LP-HW", "End-of-Sale Date": "31-Mar-17", "Announcement Date": "8-Dec-16", "End-of-Support Date": "31-Mar-24", "Replacement-Product": "MS250-48LP-HW"}
+	},
+	{
+		"LIC-GX-UMB-1Y": {"Announcement Date": "29-Apr-24", "EOS PID": "LIC-GX-UMB-1Y", "End-of-Sale Date": "29-Apr-25", "End-of-Support Date": "29-Apr-29", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"GA-PWR-50WAC": {"Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "No Replacement", "EOS PID": "GA-PWR-50WAC"}
+	},
+	{
+		"MA-MNT-MR-11": {"EOS PID": "MA-MNT-MR-11", "Announcement Date": "18-Aug-23", "End-of-Support Date": "19-Feb-29", "Replacement-Product": "No Replacement", "End-of-Sale Date": "19-Feb-24"}
+	},
+	{
+		"GX50-HW-UK": {"Announcement Date": "29-Apr-24", "EOS PID": "GX50-HW-UK", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "MX67-HW", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"MR70": {"EOS PID": "MR70-HW", "Replacement-Product": "MR78-HW", "End-of-Sale Date": "19-Feb-24", "End-of-Support Date": "19-Feb-29", "Announcement Date": "18-Aug-23"}
+	},
+	{
+		"EAB-VMX100-5Y": {"Announcement Date": "12-Dec-23", "End-of-Sale Date": "13-Dec-23", "Replacement-Product": "EAB-VMX-M-5Y", "EOS PID": "EAB-VMX100-5Y", "End-of-Support Date": "22-Dec-27"}
+	},
+	{
+		"MS42P": {"Announcement Date": "5-Nov-13", "Replacement-Product": "MS125-48FP-HW", "EOS PID": "MS42P-HW", "End-of-Sale Date": "26-Apr-14", "End-of-Support Date": "26-Apr-21"}
+	},
+	{
+		"Z3C-HW-WW": {"End-of-Sale Date": "11-Feb-24", "End-of-Support Date": "11-Feb-29", "Replacement-Product": "Z4C-HW", "EOS PID": "Z3C-HW-WW", "Announcement Date": "11-Aug-23"}
+	},
+	{
+		"MS320 & MS420 power supplies and fans": {"EOS PID": "PWR-MS320-640WAC", "Announcement Date": "16-Nov-15", "Replacement-Product": "MA-PWR-640WAC", "End-of-Sale Date": "16-Nov-15", "End-of-Support Date": "16-Nov-22"}
+	},
+	{
+		"MS390 4x10GE Module (MA-MOD-4x10)": {"End-of-Sale Date": "1-Nov-21", "Replacement-Product": "MA-MOD-8x10G", "Announcement Date": "30-Aug-21", "EOS PID": "MA-MOD-4x10G", "End-of-Support Date": "TBD"}
+	},
+	{
+		"MR72": {"End-of-Support Date": "30-Apr-24", "EOS PID": "MR72-HW", "End-of-Sale Date": "30-Apr-17", "Replacement-Product": "MR74-HW", "Announcement Date": "7-Mar-17"}
+	},
+	{
+		"MS250 FAMILY": {"End-of-Support Date": "8-Aug-30", "End-of-Sale Date": "8-Aug-25", "EOS PID": "MS250-48LP-HW", "Replacement-Product": "C9300L-48P-4X-M", "Announcement Date": "28-Aug-24"}
+	},
+	{
+		"MR33": {"EOS PID": "MR33-HW", "End-of-Sale Date": "14-Jul-22", "Replacement-Product": "MR36-HW", "Announcement Date": "27-Jan-21", "End-of-Support Date": "21-Jul-26"}
+	},
+	{
+		"LIC-MI-S (1D, 1YR, 3YR, 5YR, 7YR, 10YR)": {"End-of-Support Date": "29-Jul-29", "Replacement-Product": "No Replacement", "End-of-Sale Date": "26-Jul-24", "EOS PID": "LIC-MI-S-7YR", "Announcement Date": "26-Jan-24"}
+	},
+	{
+		"GA-PWR-CORD-US": {"EOS PID": "GA-PWR-CORD-US", "End-of-Support Date": "29-Apr-27", "Replacement-Product": "No Replacement", "Announcement Date": "29-Apr-24", "End-of-Sale Date": "29-Apr-25"}
+	},
+	{
+		"GS110-8P (UK)": {"EOS PID": "GS110-8P-HW-UK", "End-of-Support Date": "24-Aug-25", "Announcement Date": "24-Feb-23", "End-of-Sale Date": "24-Aug-23", "Replacement-Product": "No Replacement"}
+	},
+	{
+		"MG21E-HW-NA": {"Replacement-Product": "MG41E-HW", "Announcement Date": "18-Mar-24", "End-of-Support Date": "18-Sep-29", "End-of-Sale Date": "18-Sep-24", "EOS PID": "MG21E-HW-NA"}
+	},
+	{
+		"MR42": {"Announcement Date": "27-Jan-21", "End-of-Sale Date": "14-Jul-22", "EOS PID": "MR42-HW", "Replacement-Product": "MR44-HW", "End-of-Support Date": "21-Jul-26"}
+	},
+	{
+		"MS410 FAMILY": {"End-of-Support Date": "28-Sep-29", "Announcement Date": "28-Mar-24", "EOS PID": "MS410-32-HW", "End-of-Sale Date": "28-Sep-24", "Replacement-Product": "C9300-48S-M"}
+	},
+	{
+		"MA-MNT-MR-5": {"Announcement Date": "18-Aug-23", "EOS PID": "MA-MNT-MR-5", "End-of-Support Date": "19-Feb-29", "Replacement-Product": "No Replacement", "End-of-Sale Date": "19-Feb-24"}
+	},
+	{
+		"GX20-HW-UK": {"Replacement-Product": "GX50-HW-UK", "End-of-Sale Date": "20-Jun-24", "Announcement Date": "22-Jan-24", "EOS PID": "GX20-HW-UK", "End-of-Support Date": "20-Jun-26"}
+	},
+	{
+		"LIC-GX-UMB-3Y": {"Announcement Date": "29-Apr-24", "Replacement-Product": "No Replacement", "EOS PID": "LIC-GX-UMB-3Y", "End-of-Sale Date": "29-Apr-24", "End-of-Support Date": "29-Apr-29"}
+	}
+]

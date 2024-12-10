@@ -5,24 +5,48 @@ export default function ClientTable(props: any) {
 		<Table>
 			<thead>
 				<tr>
-					<th>dhcpHostname</th>
-					<th>mdnsName</th>
+					<th>Description</th>
 					<th>ip</th>
 					<th>vlan</th>
 					<th>namedVlan</th>
 					<th>mac</th>
+					<th>manufacturer</th>
 				</tr>
 			</thead>
 			<tbody>
 				{props.clients.map((client: any) => {
 					return (
 						<tr key={client.mac}>
-							<td>{client.dhcpHostname}</td>
-							<td>{client.mdnsName}</td>
-							<td>{client.ip}</td>
-							<td>{client.vlan}</td>
-							<td>{client.namedVlan}</td>
-							<td>{client.mac}</td>
+							{client.description !== null ? (
+								<td>{client.description}</td>
+							) : (
+								<td>NA</td>
+							)}
+							{client.ip !== null ? (
+								<td>{client.ip}</td>
+							) : (
+								<td>NA</td>
+							)}
+							{client.vlan !== null ? (
+								<td>{client.vlan}</td>
+							) : (
+								<td>NA</td>
+							)}
+							{client.namedVlan !== null ? (
+								<td>{client.namedVlan}</td>
+							) : (
+								<td>NA</td>
+							)}
+							{client.mac !== null ? (
+								<td>{client.mac}</td>
+							) : (
+								<td>NA</td>
+							)}
+							{client.manufacturer !== null ? (
+								<td>{client.manufacturer}</td>
+							) : (
+								<td>NA</td>
+							)}
 						</tr>
 					);
 				})}

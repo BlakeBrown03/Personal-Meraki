@@ -21,7 +21,7 @@ export default function NetworkCards(props: any) {
 			setEmptyNetwork(true);
 		}
 		setNetworkData(respData);
-		console.log(respData);
+		// console.log(respData);
 	}
 
 	return (
