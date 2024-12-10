@@ -1,16 +1,8 @@
 import { useEffect, useState } from "react";
-import {
-	Accordion,
-	Button,
-	Card,
-	Col,
-	Container,
-	Row,
-	Table
-} from "react-bootstrap";
+import { Accordion, Button, Card, Col, Container, Row } from "react-bootstrap";
 import ClientTable from "../components/ClientTable";
 
-export default function Clients(props: any) {
+export default function Clients() {
 	// State to store networks data
 	const [networks, setNetworks] = useState<any[]>([]);
 	// State to store clients data
