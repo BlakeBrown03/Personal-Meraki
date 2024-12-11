@@ -63,8 +63,9 @@ export default function HealthCheck() {
 							if (year > Number(eosDate[2])) {
 								currColor = "red";
 							} else if (
-								month >= Number(eosDate[1]) &&
-								day > Number(eosDate[0])
+								month >= months.indexOf(eosDate[1]) &&
+								day > Number(eosDate[0]) &&
+								year === Number(eosDate[2])
 							) {
 								currColor = "red";
 							} else {
