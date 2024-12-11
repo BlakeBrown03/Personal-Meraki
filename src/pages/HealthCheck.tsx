@@ -1,7 +1,6 @@
 import { Container, Table } from "react-bootstrap";
 import devicesEOD from "../../your-json.json";
 import { useEffect, useState } from "react";
-import { createPath } from "react-router-dom";
 
 export default function HealthCheck() {
 	const [devices, setDevices] = useState<any[]>([]);
