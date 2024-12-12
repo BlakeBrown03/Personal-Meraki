@@ -30,6 +30,10 @@ export default function Organizations() {
 		);
 		const data = await response.json();
 		console.log(data);
+		sessionStorage.setItem(
+			"organizations",
+			JSON.stringify(data.map((org: any) => org.id))
+		);
 		setOrganizations(data);
 	}
 

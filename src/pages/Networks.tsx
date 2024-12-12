@@ -8,26 +8,31 @@ function NetworksPage() {
 	const [shownNetworks, setShownNetworks] = useState([]);
 	const [page, setPage] = useState(1);
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
-	const [typeFilter, setTypeFilter] = useState(["user", "site", "other"]);
+	const [orgFilter, setOrgFilter] = useState(["user", "site", "other"]);
 	const [searchValue, setSearchValue] = useState("");
 	const navigate = useNavigate();
-	const availableTypes: string[] = ["user", "site", "other"];
+	const [availableOrgs, setAvailableOrgs] = JSON.parse(
+		sessionStorage.getItem("organizations") || '""'
+	);
 
 	/**
 	 * Fetches the networks from the Meraki API
 	 */
 	async function fetchData(): Promise<void> {
 		const response = await fetch(
-			"http://localhost:3000/https://api.meraki.com/api/v1/organizations/289024/networks",
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
 			{
 				headers: {
 					"X-Cisco-Meraki-API-Key": apiKey
 				}
 			}
 		);
-		if (response.status !== 200) {
+		if (response.status === 404) {
+			alert("It looks like you haven't created any networks yet");
+		} else if (response.status !== 200) {
 			alert("Invalid API Key");
 			sessionStorage.removeItem("apiKey");
+			sessionStorage.removeItem("organizations");
 			navigate("/");
 			return;
 		}
@@ -61,7 +66,7 @@ function NetworksPage() {
 	 * @param type the type of network to filter by
 	 */
 	function handleCheckboxChange(type: string): void {
-		setTypeFilter((prev: string[]) => {
+		setOrgFilter((prev: string[]) => {
 			return prev.includes(type)
 				? prev.filter(element => element !== type)
 				: [...prev, type];
@@ -75,14 +80,14 @@ function NetworksPage() {
 		setShownNetworks(
 			networks.filter((network: any) => {
 				const name = network.name.toLowerCase();
-				if (typeFilter.includes("site") && name.startsWith("site")) {
+				if (orgFilter.includes("site") && name.startsWith("site")) {
 					return true;
 				}
-				if (typeFilter.includes("user") && name.startsWith("usr")) {
+				if (orgFilter.includes("user") && name.startsWith("usr")) {
 					return true;
 				}
 				if (
-					typeFilter.includes("other") &&
+					orgFilter.includes("other") &&
 					!name.startsWith("usr") &&
 					!name.startsWith("site")
 				) {
@@ -91,7 +96,7 @@ function NetworksPage() {
 				return false;
 			})
 		);
-	}, [typeFilter]);
+	}, [orgFilter]);
 
 	/**
 	 * Filters the networks based on the search value
@@ -115,16 +120,14 @@ function NetworksPage() {
 
 	return (
 		<>
-			<h1 style={{ textAlign: "center", fontSize: "30px" }}>
-				Welcome to Meraki Dashboard
-			</h1>
+			<h1 style={{ textAlign: "center", fontSize: "30px" }}>Networks</h1>
 			{networks.length > 0 ? (
 				<>
 					<Container fluid>
 						<Row>
 							<Col xs={3} md="auto">
 								<Form>
-									{availableTypes.map((type: string) => (
+									{availableOrgs.map((type: string) => (
 										<Form.Check
 											key={type}
 											inline
@@ -133,7 +136,7 @@ function NetworksPage() {
 											onChange={() =>
 												handleCheckboxChange(type)
 											}
-											checked={typeFilter.includes(type)}
+											checked={orgFilter.includes(type)}
 										/>
 									))}
 								</Form>
