@@ -6,7 +6,7 @@ import LoginStatusContext from "../LoginStatusContext";
 export default function Login() {
 	const [key, setKey] = useState("");
 	const navigate = useNavigate();
-	const [loginStatus, setLoginStatus] = useContext(LoginStatusContext);
+	const [, setLoginStatus] = useContext(LoginStatusContext);
 
 	/**
 	 * Sets the API key in sessionStorage and navigates to the networks page
@@ -35,7 +35,28 @@ export default function Login() {
 						<a href="https://account.meraki.com/secure/login/dashboard_login">
 							here
 						</a>
-						, and create an account to generate one
+						, and create an account to generate one.
+						<div style={{ textAlign: "left", marginTop: 10 }}>
+							<ul>
+								<li>
+									You can then create organizations on the
+									next page
+								</li>
+								<li>
+									Within organization you can have multiple
+									networks
+								</li>
+								<li>
+									Within a network you have devices that you
+									can filter on the networks page
+								</li>
+								<li>
+									You can also check the health of those
+									objects and see if any devices need to be
+									replaced
+								</li>
+							</ul>
+						</div>
 					</p>
 				</Col>
 				<Col>

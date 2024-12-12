@@ -4,6 +4,7 @@ import NetworksPage from "../pages/NetworksPage";
 import Login from "../pages/Login";
 import HealthCheck from "../pages/HealthCheck";
 import Clients from "../pages/Clients";
+import Organizations from "../pages/Organizations";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					<Route index element={<Login />} />
+					<Route path="/organizations" element={<Organizations />} />
 					<Route path="/networks" element={<NetworksPage />} />
 					<Route path="/clients" element={<Clients />} />
 					<Route path="/health-check" element={<HealthCheck />} />

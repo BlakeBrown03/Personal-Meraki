@@ -20,6 +20,9 @@ export default function Layout() {
 			setDisplayNavs(() => {
 				return (
 					<>
+						<Nav.Link as={Link} to="organizations">
+							Organizations
+						</Nav.Link>
 						<Nav.Link as={Link} to="networks">
 							Networks
 						</Nav.Link>
