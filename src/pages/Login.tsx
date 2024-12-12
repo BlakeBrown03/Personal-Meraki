@@ -20,7 +20,7 @@ export default function Login() {
 		}
 		sessionStorage.setItem("apiKey", JSON.stringify(key.toLowerCase()));
 		setLoginStatus(true);
-		navigate("/networks");
+		navigate("/organizations");
 	}
 
 	return (
