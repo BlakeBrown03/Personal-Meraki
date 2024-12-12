@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { Button, Form, Modal, Table } from "react-bootstrap";
+import {
+	Button,
+	Col,
+	Container,
+	Form,
+	Modal,
+	Row,
+	Table
+} from "react-bootstrap";
 
 export default function Organizations() {
 	const [organizations, setOrganizations] = useState<Record<string, any>>([]);
@@ -21,10 +29,19 @@ export default function Organizations() {
 			}
 		);
 		const data = await response.json();
+		console.log(data);
 		setOrganizations(data);
 	}
 
 	async function createOrganization(): Promise<void> {
+		if (
+			detailsName === "" ||
+			detailsValue === "" ||
+			organizationName === ""
+		) {
+			alert("Please fill out all fields");
+			return;
+		}
 		const response = await fetch(
 			"http://localhost:3000/https://api.meraki.com/api/v1/organizations",
 			{
@@ -46,6 +63,7 @@ export default function Organizations() {
 				})
 			}
 		);
+		fetchOrganizations();
 		const data = await response.json();
 		console.log(data);
 	}
@@ -57,70 +75,93 @@ export default function Organizations() {
 	return (
 		<div style={{ textAlign: "center" }}>
 			<h1>Organizations</h1>
-			<Button onClick={() => setShow(!show)}>Create Organization</Button>
-			<Modal show={show}>
-				<Modal.Dialog>
-					<Modal.Header>
-						<Modal.Title>Create Organization</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-						<Form>
-							<Form.Label>Name</Form.Label>
-							<Form.Control
-								type="text"
-								placeholder="Organization Name"
-								onChange={e =>
-									setOrganizationName(e.target.value)
-								}
-							/>
-							<Form.Label>Details</Form.Label>
-							<Form.Control
-								type="text"
-								placeholder="Name"
-								onChange={e => setDetailsName(e.target.value)}
-							/>
-							<Form.Control
-								type="text"
-								placeholder="Value"
-								onChange={e => setDetailsValue(e.target.value)}
-							/>
-						</Form>
-					</Modal.Body>
-					<Modal.Footer>
-						<Button
-							variant="secondary"
-							onClick={() => setShow(!show)}>
-							Close
+			<Container fluid>
+				<Row>
+					<Col>
+						<Button onClick={() => setShow(!show)}>
+							Create Organization
 						</Button>
-						<Button
-							variant="primary"
-							onClick={() => {
-								createOrganization();
-								setShow(!show);
-							}}>
-							Save changes
-						</Button>
-					</Modal.Footer>
-				</Modal.Dialog>
-			</Modal>
-			{organizations["management"] === undefined ? (
-				<h5>It looks like you do not have any organizations yet</h5>
-			) : (
-				organizations["management"].map((organization: any) => {
-					return (
-						<Table key={organization.id}>
-							<tbody>
-								<tr>
-									<td>
-										<b>Name:</b>
-									</td>
-									<td>{organization.name}</td>
-								</tr>
-							</tbody>
-						</Table>
-					);
-				})
-			)}
+						<Modal show={show}>
+							<Modal.Dialog>
+								<Modal.Header>
+									<Modal.Title>
+										Create Organization
+									</Modal.Title>
+								</Modal.Header>
+								<Modal.Body>
+									<Form>
+										<Form.Label>Name</Form.Label>
+										<Form.Control
+											type="text"
+											placeholder="Organization Name"
+											onChange={e =>
+												setOrganizationName(
+													e.target.value
+												)
+											}
+										/>
+										<Form.Label>Details</Form.Label>
+										<Form.Control
+											type="text"
+											placeholder="Name"
+											onChange={e =>
+												setDetailsName(e.target.value)
+											}
+										/>
+										<Form.Control
+											type="text"
+											placeholder="Value"
+											onChange={e =>
+												setDetailsValue(e.target.value)
+											}
+										/>
+									</Form>
+								</Modal.Body>
+								<Modal.Footer>
+									<Button
+										variant="secondary"
+										onClick={() => setShow(!show)}>
+										Close
+									</Button>
+									<Button
+										variant="primary"
+										onClick={() => {
+											createOrganization();
+											setShow(!show);
+										}}>
+										Save changes
+									</Button>
+								</Modal.Footer>
+							</Modal.Dialog>
+						</Modal>
+					</Col>
+					<Col>
+						{organizations.length === 0 ? (
+							<h5>
+								It looks like you do not have any organizations
+								yet
+							</h5>
+						) : (
+							<Table>
+								<thead>
+									<tr>
+										<th>Name</th>
+									</tr>
+								</thead>
+								<tbody>
+									{organizations.map((organization: any) => {
+										return (
+											<tr key={organization.id}>
+												<td>{organization.name}</td>
+											</tr>
+										);
+									})}
+								</tbody>
+							</Table>
+						)}
+					</Col>
+				</Row>
+			</Container>
 		</div>
 	);
 }
