@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Form, Modal, Table } from "react-bootstrap";
 
 export default function Organizations() {
 	const [organizations, setOrganizations] = useState<Record<string, any>>([]);
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
+	const [organizationName, setOrganizationName] = useState<string>("");
+	const [detailsName, setDetailsName] = useState<string>("");
+	const [detailsValue, setDetailsValue] = useState<string>("");
+	const [show, setShow] = useState<boolean>(false);
 
 	async function fetchOrganizations(): Promise<void> {
 		const response = await fetch(
@@ -30,12 +34,12 @@ export default function Organizations() {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify({
-					name: "Test Organization",
+					name: organizationName,
 					management: {
 						details: [
 							{
-								name: "Test1",
-								value: "12345"
+								name: detailsName,
+								value: detailsValue
 							}
 						]
 					}
@@ -48,12 +52,57 @@ export default function Organizations() {
 
 	useEffect(() => {
 		fetchOrganizations();
-	}, [organizations]);
+	}, []);
 
 	return (
 		<div style={{ textAlign: "center" }}>
 			<h1>Organizations</h1>
-			<Button onClick={createOrganization}>Create Organization</Button>
+			<Button onClick={() => setShow(!show)}>Create Organization</Button>
+			<Modal show={show}>
+				<Modal.Dialog>
+					<Modal.Header>
+						<Modal.Title>Create Organization</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<Form>
+							<Form.Label>Name</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="Organization Name"
+								onChange={e =>
+									setOrganizationName(e.target.value)
+								}
+							/>
+							<Form.Label>Details</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="Name"
+								onChange={e => setDetailsName(e.target.value)}
+							/>
+							<Form.Control
+								type="text"
+								placeholder="Value"
+								onChange={e => setDetailsValue(e.target.value)}
+							/>
+						</Form>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button
+							variant="secondary"
+							onClick={() => setShow(!show)}>
+							Close
+						</Button>
+						<Button
+							variant="primary"
+							onClick={() => {
+								createOrganization();
+								setShow(!show);
+							}}>
+							Save changes
+						</Button>
+					</Modal.Footer>
+				</Modal.Dialog>
+			</Modal>
 			{organizations["management"] === undefined ? (
 				<h5>It looks like you do not have any organizations yet</h5>
 			) : (
