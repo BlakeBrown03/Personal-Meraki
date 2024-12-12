@@ -26,10 +26,10 @@ export default function Login() {
 	return (
 		<Container fluid>
 			<Row>
+				<h1 style={{ textAlign: "center", marginBottom: 30 }}>
+					Welcome to Meraki Dashboard
+				</h1>
 				<Col>
-					<h1 style={{ textAlign: "center" }}>
-						Welcome to Meraki Dashboard
-					</h1>
 					<p style={{ textAlign: "center" }}>
 						To generate your own API Key go{" "}
 						<a href="https://account.meraki.com/secure/login/dashboard_login">
