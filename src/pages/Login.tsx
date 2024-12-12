@@ -36,28 +36,23 @@ export default function Login() {
 							here
 						</a>
 						, and create an account to generate one.
-						<div style={{ textAlign: "left", marginTop: 10 }}>
-							<ul>
-								<li>
-									You can then create organizations on the
-									next page
-								</li>
-								<li>
-									Within organization you can have multiple
-									networks
-								</li>
-								<li>
-									Within a network you have devices that you
-									can filter on the networks page
-								</li>
-								<li>
-									You can also check the health of those
-									objects and see if any devices need to be
-									replaced
-								</li>
-							</ul>
-						</div>
 					</p>
+					<ul>
+						<li>
+							You can then create organizations on the next page
+						</li>
+						<li>
+							Within organization you can have multiple networks
+						</li>
+						<li>
+							Within a network you have devices that you can
+							filter on the networks page
+						</li>
+						<li>
+							You can also check the health of those objects and
+							see if any devices need to be replaced
+						</li>
+					</ul>
 				</Col>
 				<Col>
 					<Form style={{ textAlign: "center" }}>
