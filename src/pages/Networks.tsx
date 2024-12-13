@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NetworkCard from "../components/NetworkCard";
-import { Col, Container, Form, Pagination, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Pagination, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function NetworksPage() {
@@ -11,8 +11,8 @@ function NetworksPage() {
 	const [orgFilter, setOrgFilter] = useState(["user", "site", "other"]);
 	const [searchValue, setSearchValue] = useState("");
 	const navigate = useNavigate();
-	const [availableOrgs, setAvailableOrgs] = JSON.parse(
-		sessionStorage.getItem("organizations") || '""'
+	const availableOrgs = JSON.parse(
+		sessionStorage.getItem("organizations") || "[]"
 	);
 
 	/**
@@ -121,72 +121,65 @@ function NetworksPage() {
 	return (
 		<>
 			<h1 style={{ textAlign: "center", fontSize: "30px" }}>Networks</h1>
-			{networks.length > 0 ? (
-				<>
-					<Container fluid>
-						<Row>
-							<Col xs={3} md="auto">
-								<Form>
-									{availableOrgs.map((type: string) => (
-										<Form.Check
-											key={type}
-											inline
-											type="checkbox"
-											label={type}
-											onChange={() =>
-												handleCheckboxChange(type)
-											}
-											checked={orgFilter.includes(type)}
-										/>
-									))}
-								</Form>
+			<Container fluid>
+				<Row>
+					<Col xs={3} md="auto">
+						<Form>
+							{availableOrgs.map((type: string) => (
+								<Form.Check
+									key={type}
+									inline
+									type="checkbox"
+									label={type}
+									onChange={() => handleCheckboxChange(type)}
+									checked={orgFilter.includes(type)}
+								/>
+							))}
+						</Form>
+						<Button>Create Network</Button>
+					</Col>
+					<Col>
+						<Form.Control
+							type="text"
+							placeholder="Search..."
+							onChange={e =>
+								setSearchValue(e.target.value)
+							}></Form.Control>
+					</Col>
+				</Row>
+			</Container>
+			<Container fluid>
+				<Row>
+					{shownNetworks
+						.slice(24 * (page - 1), 24 * page)
+						.map((network: any) => (
+							<Col
+								style={{
+									paddingTop: 10,
+									paddingBottom: 10
+								}}
+								key={network.id}
+								fluid="md"
+								md={12}
+								xl={6}>
+								<NetworkCard {...network}></NetworkCard>
 							</Col>
-							<Col>
-								<Form.Control
-									type="text"
-									placeholder="Search..."
-									onChange={e =>
-										setSearchValue(e.target.value)
-									}></Form.Control>
-							</Col>
-						</Row>
-					</Container>
-					<Container fluid>
-						<Row>
-							{shownNetworks
-								.slice(24 * (page - 1), 24 * page)
-								.map((network: any) => (
-									<Col
-										style={{
-											paddingTop: 10,
-											paddingBottom: 10
-										}}
-										key={network.id}
-										fluid="md"
-										md={12}
-										xl={6}>
-										<NetworkCard {...network}></NetworkCard>
-									</Col>
-								))}
-						</Row>
-					</Container>
-					<Pagination size="sm">
-						<Pagination.Item
-							onClick={() => setPage(page - 1)}
-							disabled={page === 1}>
-							Back
-						</Pagination.Item>
-						{buildPaginator()}
-						<Pagination.Item
-							onClick={() => setPage(page + 1)}
-							disabled={page === Math.ceil(networks.length / 24)}>
-							Next
-						</Pagination.Item>
-					</Pagination>
-				</>
-			) : (
-				<h4 style={{ textAlign: "center" }}>loading...</h4>
-			)}
+						))}
+				</Row>
+			</Container>
+			<Pagination size="sm">
+				<Pagination.Item
+					onClick={() => setPage(page - 1)}
+					disabled={page === 1}>
+					Back
+				</Pagination.Item>
+				{buildPaginator()}
+				<Pagination.Item
+					onClick={() => setPage(page + 1)}
+					disabled={page === Math.ceil(networks.length / 24)}>
+					Next
+				</Pagination.Item>
+			</Pagination>
 		</>
 	);
 }
