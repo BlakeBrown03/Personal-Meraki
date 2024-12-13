@@ -11,11 +11,12 @@ export default function Clients() {
 	const [clickedNetwork, setClickedNetwork] = useState<string>("");
 	// Retrieve API key from session storage
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
+	const orgIds = JSON.parse(sessionStorage.getItem("orgIds") || '""');
 
 	// Function to fetch networks data from the API
 	async function fetchData(): Promise<void> {
 		const response = await fetch(
-			"http://localhost:3000/https://api.meraki.com/api/v1/organizations/289024/networks",
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${orgIds[0]}/networks`,
 			{
 				headers: {
 					"X-Cisco-Meraki-API-Key": apiKey

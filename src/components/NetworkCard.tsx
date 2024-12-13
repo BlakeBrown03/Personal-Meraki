@@ -6,10 +6,11 @@ export default function NetworkCards(props: any) {
 	const [networkData, setNetworkData] = useState<any>([]);
 	const [emptyNetwork, setEmptyNetwork] = useState<boolean>(false);
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
+	const orgIds = JSON.parse(sessionStorage.getItem("orgIds") || '""');
 
 	async function handleNetworkClick(): Promise<void> {
 		const fetchData = await fetch(
-			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/289024/devices/?networkIds[]=${props.id}`,
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${orgIds[0]}/devices/?networkIds[]=${props.id}`,
 			{
 				headers: {
 					"X-Cisco-Meraki-API-Key": apiKey
