@@ -75,28 +75,28 @@ function NetworksPage() {
 		});
 	}
 
+	async function createNetwork(): Promise<void> {
+		const response = await fetch(
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
+			{
+				method: "POST",
+				headers: {
+					"X-Cisco-Meraki-API-Key": apiKey
+				}
+			}
+		);
+		const respData = await response.json();
+		setNetworks([...networks, respData]);
+	}
+
 	/**
 	 * Filters the networks based on the type
 	 */
-	/*
 	useEffect(() => {
 		setShownNetworks(
 			networks.filter((network: any) => {
-				const name = network.name.toLowerCase();
-				if (orgFilter.includes("site") && name.startsWith("site")) {
-					return true;
-				}
-				if (orgFilter.includes("user") && name.startsWith("usr")) {
-					return true;
-				}
-				if (
-					orgFilter.includes("other") &&
-					!name.startsWith("usr") &&
-					!name.startsWith("site")
-				) {
-					return true;
-				}
-				return false;
+				const orgId: string = network.organizationId.toLowerCase();
+				return orgFilter.includes(orgId);
 			})
 		);
 	}, [orgFilter]);
@@ -123,8 +123,13 @@ function NetworksPage() {
 
 	return (
 		<>
-			<h1 style={{ textAlign: "center", fontSize: "30px" }}>Networks</h1>
 			<Container fluid>
+				<Row>
+					<h1 style={{ textAlign: "center", fontSize: "30px" }}>
+						Networks
+					</h1>
+					<Button onClick={createNetwork}>Create a network</Button>
+				</Row>
 				<Row>
 					<Col xs={3} md="auto">
 						<Form>
@@ -139,7 +144,6 @@ function NetworksPage() {
 								/>
 							))}
 						</Form>
-						<Button>Create Network</Button>
 					</Col>
 					<Col>
 						<Form.Control
