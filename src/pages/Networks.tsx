@@ -4,41 +4,43 @@ import { Button, Col, Container, Form, Pagination, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function NetworksPage() {
-	const [networks, setNetworks] = useState([]);
-	const [shownNetworks, setShownNetworks] = useState([]);
+	const [networks, setNetworks] = useState<any[]>([]);
+	const [shownNetworks, setShownNetworks] = useState<any[]>([]);
 	const [page, setPage] = useState(1);
 	const apiKey = JSON.parse(sessionStorage.getItem("apiKey") || '""');
-	const [orgFilter, setOrgFilter] = useState(["user", "site", "other"]);
 	const [searchValue, setSearchValue] = useState("");
 	const navigate = useNavigate();
 	const availableOrgs = JSON.parse(
 		sessionStorage.getItem("organizations") || "[]"
 	);
+	const [orgFilter, setOrgFilter] = useState<string[]>(availableOrgs);
 
 	/**
 	 * Fetches the networks from the Meraki API
 	 */
 	async function fetchData(): Promise<void> {
-		const response = await fetch(
-			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
-			{
-				headers: {
-					"X-Cisco-Meraki-API-Key": apiKey
+		for (let i: number = 0; i < availableOrgs.length; i++) {
+			const response = await fetch(
+				`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[i]}/networks`,
+				{
+					headers: {
+						"X-Cisco-Meraki-API-Key": apiKey
+					}
 				}
+			);
+			if (response.status === 404) {
+				alert("It looks like you haven't created any networks yet");
+			} else if (response.status !== 200) {
+				alert("Invalid API Key");
+				sessionStorage.removeItem("apiKey");
+				sessionStorage.removeItem("organizations");
+				navigate("/");
+				return;
 			}
-		);
-		if (response.status === 404) {
-			alert("It looks like you haven't created any networks yet");
-		} else if (response.status !== 200) {
-			alert("Invalid API Key");
-			sessionStorage.removeItem("apiKey");
-			sessionStorage.removeItem("organizations");
-			navigate("/");
-			return;
+			const respData = await response.json();
+			setNetworks([...networks, respData]);
+			setShownNetworks([...networks, respData]);
 		}
-		const respData = await response.json();
-		setNetworks(respData);
-		setShownNetworks(respData);
 	}
 
 	/**
@@ -76,6 +78,7 @@ function NetworksPage() {
 	/**
 	 * Filters the networks based on the type
 	 */
+	/*
 	useEffect(() => {
 		setShownNetworks(
 			networks.filter((network: any) => {
@@ -125,14 +128,14 @@ function NetworksPage() {
 				<Row>
 					<Col xs={3} md="auto">
 						<Form>
-							{availableOrgs.map((type: string) => (
+							{availableOrgs.map((id: string) => (
 								<Form.Check
-									key={type}
+									key={id}
 									inline
 									type="checkbox"
-									label={type}
-									onChange={() => handleCheckboxChange(type)}
-									checked={orgFilter.includes(type)}
+									label={id}
+									onChange={() => handleCheckboxChange(id)}
+									checked={orgFilter.includes(id)}
 								/>
 							))}
 						</Form>
@@ -148,38 +151,44 @@ function NetworksPage() {
 					</Col>
 				</Row>
 			</Container>
-			<Container fluid>
-				<Row>
-					{shownNetworks
-						.slice(24 * (page - 1), 24 * page)
-						.map((network: any) => (
-							<Col
-								style={{
-									paddingTop: 10,
-									paddingBottom: 10
-								}}
-								key={network.id}
-								fluid="md"
-								md={12}
-								xl={6}>
-								<NetworkCard {...network}></NetworkCard>
-							</Col>
-						))}
-				</Row>
-			</Container>
-			<Pagination size="sm">
-				<Pagination.Item
-					onClick={() => setPage(page - 1)}
-					disabled={page === 1}>
-					Back
-				</Pagination.Item>
-				{buildPaginator()}
-				<Pagination.Item
-					onClick={() => setPage(page + 1)}
-					disabled={page === Math.ceil(networks.length / 24)}>
-					Next
-				</Pagination.Item>
-			</Pagination>
+			{shownNetworks.length === 0 ? (
+				<h1>No Networks found</h1>
+			) : (
+				<>
+					<Container fluid>
+						<Row>
+							{shownNetworks
+								.slice(24 * (page - 1), 24 * page)
+								.map((network: any, index: number) => (
+									<Col
+										style={{
+											paddingTop: 10,
+											paddingBottom: 10
+										}}
+										key={network.id || index}
+										fluid="md"
+										md={12}
+										xl={6}>
+										<NetworkCard {...network}></NetworkCard>
+									</Col>
+								))}
+						</Row>
+					</Container>
+					<Pagination size="sm">
+						<Pagination.Item
+							onClick={() => setPage(page - 1)}
+							disabled={page === 1}>
+							Back
+						</Pagination.Item>
+						{buildPaginator()}
+						<Pagination.Item
+							onClick={() => setPage(page + 1)}
+							disabled={page === Math.ceil(networks.length / 24)}>
+							Next
+						</Pagination.Item>
+					</Pagination>
+				</>
+			)}
 		</>
 	);
 }
