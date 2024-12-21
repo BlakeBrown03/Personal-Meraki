@@ -104,68 +104,7 @@ export default function Organizations() {
 				<Row>
 					<Col>
 						<Button
-							onClick={() => setCreateShow(!createShow)}
-							style={{ paddingInline: 21 }}
-							variant="success">
-							Create Organization
-						</Button>
-						<Modal show={createShow}>
-							<Modal.Dialog>
-								<Modal.Header>
-									<Modal.Title>
-										Create Organization
-									</Modal.Title>
-								</Modal.Header>
-								<Modal.Body>
-									<Form>
-										<Form.Label>Name</Form.Label>
-										<Form.Control
-											type="text"
-											placeholder="Organization Name"
-											onChange={e =>
-												setOrganizationName(
-													e.target.value
-												)
-											}
-										/>
-										<Form.Label>Details</Form.Label>
-										<Form.Control
-											type="text"
-											placeholder="Name"
-											onChange={e =>
-												setDetailsName(e.target.value)
-											}
-										/>
-										<Form.Control
-											type="text"
-											placeholder="Value"
-											onChange={e =>
-												setDetailsValue(e.target.value)
-											}
-										/>
-									</Form>
-								</Modal.Body>
-								<Modal.Footer>
-									<Button
-										variant="secondary"
-										onClick={() =>
-											setCreateShow(!createShow)
-										}>
-										Close
-									</Button>
-									<Button
-										variant="primary"
-										onClick={() => {
-											createOrganization();
-											setCreateShow(!createShow);
-										}}>
-										Save changes
-									</Button>
-								</Modal.Footer>
-							</Modal.Dialog>
-						</Modal>
-						<Button
-							style={{ marginTop: 10 }}
+							style={{}}
 							variant="danger"
 							onClick={() => setDeleteShow(!deleteShow)}>
 							Delete an organization
@@ -218,8 +157,70 @@ export default function Organizations() {
 								</Modal.Footer>
 							</Modal.Dialog>
 						</Modal>
+						<Button
+							onClick={() => setCreateShow(!createShow)}
+							style={{ paddingInline: 21 }}
+							variant="success">
+							Create Organization
+						</Button>
+						<Modal show={createShow}>
+							<Modal.Dialog>
+								<Modal.Header>
+									<Modal.Title>
+										Create Organization
+									</Modal.Title>
+								</Modal.Header>
+								<Modal.Body>
+									<Form>
+										<Form.Label>Name</Form.Label>
+										<Form.Control
+											type="text"
+											placeholder="Organization Name"
+											onChange={e =>
+												setOrganizationName(
+													e.target.value
+												)
+											}
+										/>
+										<Form.Label>Details</Form.Label>
+										<Form.Control
+											type="text"
+											placeholder="Name"
+											onChange={e =>
+												setDetailsName(e.target.value)
+											}
+										/>
+										<Form.Control
+											style={{ marginTop: "10px" }}
+											type="text"
+											placeholder="Value"
+											onChange={e =>
+												setDetailsValue(e.target.value)
+											}
+										/>
+									</Form>
+								</Modal.Body>
+								<Modal.Footer>
+									<Button
+										variant="secondary"
+										onClick={() =>
+											setCreateShow(!createShow)
+										}>
+										Close
+									</Button>
+									<Button
+										variant="primary"
+										onClick={() => {
+											createOrganization();
+											setCreateShow(!createShow);
+										}}>
+										Save changes
+									</Button>
+								</Modal.Footer>
+							</Modal.Dialog>
+						</Modal>
 					</Col>
-					<Col>
+					<Col xs={8}>
 						{organizations.length === 0 ? (
 							<h5>
 								It looks like you do not have any organizations

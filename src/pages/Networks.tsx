@@ -28,6 +28,7 @@ function NetworksPage() {
 	const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
 	const [selectedOrg, setSelectedOrg] = useState<string>("");
 	const [selectedNetwork, setSelectedNetwork] = useState<string>("");
+	const [, setNewNetworkData] = useState<any>({});
 
 	/**
 	 * Fetches the networks from the Meraki API
@@ -90,23 +91,26 @@ function NetworksPage() {
 	}
 
 	async function createNetwork(network: any): Promise<void> {
+		console.log(selectedOrg);
 		const response = await fetch(
-			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${selectedOrg}/networks`,
 			{
 				method: "POST",
 				headers: {
 					"X-Cisco-Meraki-API-Key": apiKey
 				},
-				body: JSON.stringify({})
+				body: JSON.stringify({
+					name: network
+				})
 			}
 		);
-		const respData = await response.json();
-		setNetworks([...networks, respData]);
+		console.log(response.status);
+		fetchData();
 	}
 
 	async function deleteNetwork(network: any): Promise<void> {
 		const response = await fetch(
-			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${selectedOrg}/${network}`,
 			{
 				method: "DELETE",
 				headers: {
@@ -115,7 +119,11 @@ function NetworksPage() {
 				body: JSON.stringify({})
 			}
 		);
-		const respData = await response.json();
+		if (response.status !== 204) {
+			alert("Error deleting network");
+			return;
+		}
+		fetchData();
 	}
 
 	/**
@@ -158,7 +166,9 @@ function NetworksPage() {
 					display: "flex",
 					justifyContent: "center"
 				}}>
-				<Button onClick={deleteNetwork} variant="danger">
+				<Button
+					onClick={() => setShowDeleteModal(true)}
+					variant="danger">
 					Delete a network
 				</Button>
 				<Modal show={showDeleteModal}>
@@ -170,11 +180,12 @@ function NetworksPage() {
 									<Form.Label>Organization</Form.Label>
 									<Form.Control
 										as="select"
+										value={selectedOrg}
 										onChange={e =>
 											setSelectedOrg(e.target.value)
 										}>
 										{availableOrgs.map((org: any[]) => (
-											<option key={org[0]}>
+											<option key={org[0]} value={org[0]}>
 												{org[1]}
 											</option>
 										))}
@@ -184,11 +195,14 @@ function NetworksPage() {
 									<Form.Label>Networks</Form.Label>
 									<Form.Control
 										as="select"
+										value={selectedNetwork}
 										onChange={e =>
 											setSelectedNetwork(e.target.value)
 										}>
 										{networks.map((network: any) => (
-											<option key={network.id}>
+											<option
+												key={network.id}
+												value={network.id}>
 												network.name
 											</option>
 										))}
@@ -214,7 +228,7 @@ function NetworksPage() {
 					</Modal.Dialog>
 				</Modal>
 				<Button
-					onClick={createNetwork}
+					onClick={() => setShowCreateModal(true)}
 					variant="success"
 					style={{ marginLeft: "10px" }}>
 					Create a network
@@ -228,11 +242,15 @@ function NetworksPage() {
 									<Form.Label>Organization</Form.Label>
 									<Form.Control
 										as="select"
+										value={selectedOrg}
 										onChange={e =>
 											setSelectedOrg(e.target.value)
 										}>
+										<option value="">
+											Select an organization
+										</option>
 										{availableOrgs.map((org: any[]) => (
-											<option key={org[0]}>
+											<option key={org[0]} value={org[0]}>
 												{org[1]}
 											</option>
 										))}
@@ -241,10 +259,15 @@ function NetworksPage() {
 								<Form.Group>
 									<Form.Label>Network Name</Form.Label>
 									<Form.Control
-										as="text"
+										type="text"
 										onChange={e =>
-											setSelectedNetwork(e.target.value)
-										}></Form.Control>
+											setNewNetworkData((prev: any) => ({
+												...prev,
+												name: e.target.value
+											}))
+										}
+										placeholder="Network Name"
+									/>
 								</Form.Group>
 							</Form>
 						</Modal.Body>
