@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import NetworkCard from "../components/NetworkCard";
-import { Button, Col, Container, Form, Pagination, Row } from "react-bootstrap";
+import {
+	Button,
+	Col,
+	Container,
+	Form,
+	Modal,
+	Pagination,
+	Row
+} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function NetworksPage() {
@@ -16,6 +24,10 @@ function NetworksPage() {
 	const [orgFilter, setOrgFilter] = useState<string[]>(
 		availableOrgs.map((org: any[]) => org[0])
 	);
+	const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+	const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
+	const [selectedOrg, setSelectedOrg] = useState<string>("");
+	const [selectedNetwork, setSelectedNetwork] = useState<string>("");
 
 	/**
 	 * Fetches the networks from the Meraki API
@@ -77,7 +89,7 @@ function NetworksPage() {
 		});
 	}
 
-	async function createNetwork(): Promise<void> {
+	async function createNetwork(network: any): Promise<void> {
 		const response = await fetch(
 			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
 			{
@@ -92,7 +104,7 @@ function NetworksPage() {
 		setNetworks([...networks, respData]);
 	}
 
-	async function deleteNetwork(): Promise<void> {
+	async function deleteNetwork(network: any): Promise<void> {
 		const response = await fetch(
 			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
 			{
@@ -140,25 +152,121 @@ function NetworksPage() {
 
 	return (
 		<>
+			<div
+				style={{
+					marginBottom: "10px",
+					display: "flex",
+					justifyContent: "center"
+				}}>
+				<Button onClick={deleteNetwork} variant="danger">
+					Delete a network
+				</Button>
+				<Modal show={showDeleteModal}>
+					<Modal.Dialog>
+						<Modal.Header>Delete a network</Modal.Header>
+						<Modal.Body>
+							<Form>
+								<Form.Group>
+									<Form.Label>Organization</Form.Label>
+									<Form.Control
+										as="select"
+										onChange={e =>
+											setSelectedOrg(e.target.value)
+										}>
+										{availableOrgs.map((org: any[]) => (
+											<option key={org[0]}>
+												{org[1]}
+											</option>
+										))}
+									</Form.Control>
+								</Form.Group>
+								<Form.Group>
+									<Form.Label>Networks</Form.Label>
+									<Form.Control
+										as="select"
+										onChange={e =>
+											setSelectedNetwork(e.target.value)
+										}>
+										{networks.map((network: any) => (
+											<option key={network.id}>
+												network.name
+											</option>
+										))}
+									</Form.Control>
+								</Form.Group>
+							</Form>
+						</Modal.Body>
+						<Modal.Footer>
+							<Button
+								variant="secondary"
+								onClick={() => setShowDeleteModal(false)}>
+								Close
+							</Button>
+							<Button
+								variant="primary"
+								onClick={() => {
+									deleteNetwork(selectedNetwork);
+									setShowDeleteModal(false);
+								}}>
+								Delete
+							</Button>
+						</Modal.Footer>
+					</Modal.Dialog>
+				</Modal>
+				<Button
+					onClick={createNetwork}
+					variant="success"
+					style={{ marginLeft: "10px" }}>
+					Create a network
+				</Button>
+				<Modal show={showCreateModal}>
+					<Modal.Dialog>
+						<Modal.Header>Create a network</Modal.Header>
+						<Modal.Body>
+							<Form>
+								<Form.Group>
+									<Form.Label>Organization</Form.Label>
+									<Form.Control
+										as="select"
+										onChange={e =>
+											setSelectedOrg(e.target.value)
+										}>
+										{availableOrgs.map((org: any[]) => (
+											<option key={org[0]}>
+												{org[1]}
+											</option>
+										))}
+									</Form.Control>
+								</Form.Group>
+								<Form.Group>
+									<Form.Label>Network Name</Form.Label>
+									<Form.Control
+										as="text"
+										onChange={e =>
+											setSelectedNetwork(e.target.value)
+										}></Form.Control>
+								</Form.Group>
+							</Form>
+						</Modal.Body>
+						<Modal.Footer>
+							<Button
+								variant="secondary"
+								onClick={() => setShowCreateModal(false)}>
+								Close
+							</Button>
+							<Button
+								variant="primary"
+								onClick={() => {
+									createNetwork(selectedNetwork);
+									setShowCreateModal(false);
+								}}>
+								Create
+							</Button>
+						</Modal.Footer>
+					</Modal.Dialog>
+				</Modal>
+			</div>
 			<Container fluid>
-				<Row>
-					<Col>
-						<h1 style={{ textAlign: "center", fontSize: "30px" }}>
-							Networks
-						</h1>
-					</Col>
-					<Col>
-						<Button onClick={deleteNetwork} variant="danger">
-							Delete a network
-						</Button>
-						<Button
-							onClick={createNetwork}
-							variant="success"
-							style={{ marginLeft: "10px" }}>
-							Create a network
-						</Button>
-					</Col>
-				</Row>
 				<Row>
 					<Col xs={3} md="auto">
 						<Form>
@@ -187,7 +295,9 @@ function NetworksPage() {
 				</Row>
 			</Container>
 			{networks.length === 0 ? (
-				<h1 style={{ textAlign: "center" }}>No Networks found</h1>
+				<p style={{ textAlign: "center", marginTop: "20px" }}>
+					No Networks found
+				</p>
 			) : (
 				<>
 					<Container fluid>
