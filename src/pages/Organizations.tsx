@@ -15,7 +15,9 @@ export default function Organizations() {
 	const [organizationName, setOrganizationName] = useState<string>("");
 	const [detailsName, setDetailsName] = useState<string>("");
 	const [detailsValue, setDetailsValue] = useState<string>("");
-	const [show, setShow] = useState<boolean>(false);
+	const [createShow, setCreateShow] = useState<boolean>(false);
+	const [deleteShow, setDeleteShow] = useState<boolean>(false);
+	const [pickedOrg, setPickedOrg] = useState<string>("");
 
 	async function fetchOrganizations(): Promise<void> {
 		const response = await fetch(
@@ -29,10 +31,9 @@ export default function Organizations() {
 			}
 		);
 		const data = await response.json();
-		console.log(data);
 		sessionStorage.setItem(
 			"organizations",
-			JSON.stringify(data.map((org: any) => org.id))
+			JSON.stringify(data.map((org: any) => [org.id, org.name]))
 		);
 		setOrganizations(data);
 	}
@@ -72,6 +73,26 @@ export default function Organizations() {
 		console.log(data);
 	}
 
+	async function deleteOrganization(org: string): Promise<void> {
+		const response = await fetch(
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${org}`,
+			{
+				method: "DELETE",
+				headers: {
+					"X-Cisco-Meraki-API-Key": apiKey
+				}
+			}
+		);
+		if (response.status !== 204) {
+			alert("Error deleting organization");
+			return;
+		}
+		setOrganizations(
+			organizations.filter((organization: any) => organization.id !== org)
+		);
+		fetchOrganizations();
+	}
+
 	useEffect(() => {
 		fetchOrganizations();
 	}, []);
@@ -82,10 +103,13 @@ export default function Organizations() {
 			<Container fluid>
 				<Row>
 					<Col>
-						<Button onClick={() => setShow(!show)}>
+						<Button
+							onClick={() => setCreateShow(!createShow)}
+							style={{ paddingInline: 21 }}
+							variant="success">
 							Create Organization
 						</Button>
-						<Modal show={show}>
+						<Modal show={createShow}>
 							<Modal.Dialog>
 								<Modal.Header>
 									<Modal.Title>
@@ -124,16 +148,72 @@ export default function Organizations() {
 								<Modal.Footer>
 									<Button
 										variant="secondary"
-										onClick={() => setShow(!show)}>
+										onClick={() =>
+											setCreateShow(!createShow)
+										}>
 										Close
 									</Button>
 									<Button
 										variant="primary"
 										onClick={() => {
 											createOrganization();
-											setShow(!show);
+											setCreateShow(!createShow);
 										}}>
 										Save changes
+									</Button>
+								</Modal.Footer>
+							</Modal.Dialog>
+						</Modal>
+						<Button
+							style={{ marginTop: 10 }}
+							variant="danger"
+							onClick={() => setDeleteShow(!deleteShow)}>
+							Delete an organization
+						</Button>
+						<Modal show={deleteShow}>
+							<Modal.Dialog>
+								<Modal.Header>
+									<Modal.Title>
+										Delete Organization
+									</Modal.Title>
+								</Modal.Header>
+								<Modal.Body>
+									<Form>
+										<Form.Label>
+											Select an organization to delete
+										</Form.Label>
+										<Form.Control
+											as="select"
+											onChange={e =>
+												setPickedOrg(e.target.value)
+											}>
+											{organizations.map(
+												(organization: any) => (
+													<option
+														key={organization.id}
+														value={organization.id}>
+														{organization.name}
+													</option>
+												)
+											)}
+										</Form.Control>
+									</Form>
+								</Modal.Body>
+								<Modal.Footer>
+									<Button
+										variant="secondary"
+										onClick={() =>
+											setDeleteShow(!deleteShow)
+										}>
+										Close
+									</Button>
+									<Button
+										variant="primary"
+										onClick={() => {
+											deleteOrganization(pickedOrg);
+											setDeleteShow(!deleteShow);
+										}}>
+										Delete
 									</Button>
 								</Modal.Footer>
 							</Modal.Dialog>

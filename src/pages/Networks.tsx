@@ -13,7 +13,9 @@ function NetworksPage() {
 	const availableOrgs = JSON.parse(
 		sessionStorage.getItem("organizations") || "[]"
 	);
-	const [orgFilter, setOrgFilter] = useState<string[]>(availableOrgs);
+	const [orgFilter, setOrgFilter] = useState<string[]>(
+		availableOrgs.map((org: any[]) => org[0])
+	);
 
 	/**
 	 * Fetches the networks from the Meraki API
@@ -21,7 +23,7 @@ function NetworksPage() {
 	async function fetchData(): Promise<void> {
 		for (let i: number = 0; i < availableOrgs.length; i++) {
 			const response = await fetch(
-				`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[i]}/networks`,
+				`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[i][0]}/networks`,
 				{
 					headers: {
 						"X-Cisco-Meraki-API-Key": apiKey
@@ -38,8 +40,8 @@ function NetworksPage() {
 				return;
 			}
 			const respData = await response.json();
-			setNetworks([...networks, respData]);
-			setShownNetworks([...networks, respData]);
+			setNetworks(respData);
+			setShownNetworks(respData);
 		}
 	}
 
@@ -70,7 +72,7 @@ function NetworksPage() {
 	function handleCheckboxChange(type: string): void {
 		setOrgFilter((prev: string[]) => {
 			return prev.includes(type)
-				? prev.filter(element => element !== type)
+				? prev.filter((element: string) => element !== type)
 				: [...prev, type];
 		});
 	}
@@ -82,11 +84,26 @@ function NetworksPage() {
 				method: "POST",
 				headers: {
 					"X-Cisco-Meraki-API-Key": apiKey
-				}
+				},
+				body: JSON.stringify({})
 			}
 		);
 		const respData = await response.json();
 		setNetworks([...networks, respData]);
+	}
+
+	async function deleteNetwork(): Promise<void> {
+		const response = await fetch(
+			`http://localhost:3000/https://api.meraki.com/api/v1/organizations/${availableOrgs[0]}/networks`,
+			{
+				method: "DELETE",
+				headers: {
+					"X-Cisco-Meraki-API-Key": apiKey
+				},
+				body: JSON.stringify({})
+			}
+		);
+		const respData = await response.json();
 	}
 
 	/**
@@ -125,22 +142,36 @@ function NetworksPage() {
 		<>
 			<Container fluid>
 				<Row>
-					<h1 style={{ textAlign: "center", fontSize: "30px" }}>
-						Networks
-					</h1>
-					<Button onClick={createNetwork}>Create a network</Button>
+					<Col>
+						<h1 style={{ textAlign: "center", fontSize: "30px" }}>
+							Networks
+						</h1>
+					</Col>
+					<Col>
+						<Button onClick={deleteNetwork} variant="danger">
+							Delete a network
+						</Button>
+						<Button
+							onClick={createNetwork}
+							variant="success"
+							style={{ marginLeft: "10px" }}>
+							Create a network
+						</Button>
+					</Col>
 				</Row>
 				<Row>
 					<Col xs={3} md="auto">
 						<Form>
-							{availableOrgs.map((id: string) => (
+							{availableOrgs.map((org: string[]) => (
 								<Form.Check
-									key={id}
+									key={org[0]}
 									inline
 									type="checkbox"
-									label={id}
-									onChange={() => handleCheckboxChange(id)}
-									checked={orgFilter.includes(id)}
+									label={org[1]}
+									onChange={() =>
+										handleCheckboxChange(org[0])
+									}
+									checked={orgFilter.includes(org[0])}
 								/>
 							))}
 						</Form>
@@ -155,8 +186,8 @@ function NetworksPage() {
 					</Col>
 				</Row>
 			</Container>
-			{shownNetworks.length === 0 ? (
-				<h1>No Networks found</h1>
+			{networks.length === 0 ? (
+				<h1 style={{ textAlign: "center" }}>No Networks found</h1>
 			) : (
 				<>
 					<Container fluid>
